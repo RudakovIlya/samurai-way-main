@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Technologies = () => {
+const Technologies = () => {
     return (
         <ul>
             <li>CSS</li>
@@ -10,3 +10,5 @@ export const Technologies = () => {
         </ul>
     )
 }
+
+export default Technologies
