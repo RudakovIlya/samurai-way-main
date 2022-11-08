@@ -1,0 +1,17 @@
+.nav {
+    grid-area: nav;
+    background-color: burlywood;
+}
+
+.list {
+    padding: 0;
+    list-style-type: none;
+}
+
+.item a {
+    color: white;
+}
+
+.item.active a {
+    color: red;
+}
