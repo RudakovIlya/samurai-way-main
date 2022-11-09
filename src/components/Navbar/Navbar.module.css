@@ -1,17 +1,21 @@
 .nav {
     grid-area: nav;
-    background-color: burlywood;
+    background-color: #0d88c9;
+    border-radius: 16px;
+    height: 100vh;
 }
 
 .list {
-    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding: 15px;
     list-style-type: none;
 }
 
 .item a {
-    color: white;
-}
-
-.item.active a {
-    color: red;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
 }
