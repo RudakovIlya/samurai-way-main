@@ -14,5 +14,4 @@ const Navbar = () => {
         </nav>
     );
 };
-console.log(classes)
 export default Navbar;
