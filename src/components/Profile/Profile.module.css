@@ -2,6 +2,7 @@
     grid-area: content;
     background-color: #0d88c9;
     border-radius: 16px;
+    height: 100vh;
 }
 
 .image {
