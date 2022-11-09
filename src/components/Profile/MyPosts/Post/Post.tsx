@@ -1,13 +1,19 @@
 import React from "react";
 import classes from './Post.module.css';
 
-const Post = () => {
+type PostTypePros = {
+    message: string,
+    avatar: string,
+    likesCount: number,
+}
+
+const Post = (props: PostTypePros) => {
     return (
         <li className={classes.item}>
-            <img src="https://static.1tv.ru/uploads/photo/image/2/huge/4062_huge_876c41f50e.jpg" alt="avatar"/>
-            new post 1
+            <img src={props.avatar} alt="avatar"/>
+            <span>{props.message}</span>
             <div>
-                <span>like</span>
+                <span>{props.likesCount}</span>
             </div>
         </li>
     );
