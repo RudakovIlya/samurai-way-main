@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/samurai-way-main/static/css/main.25927c43.css",
+    "main.js": "/samurai-way-main/static/js/main.d320f8cf.js",
+    "static/media/hooli_logo.svg": "/samurai-way-main/static/media/hooli_logo.6f49d0bc86f8a33c9654ef5e76ab7de1.svg",
+    "static/media/hooli-logo.svg": "/samurai-way-main/static/media/hooli-logo.de066defdfe7bdb06592ecebeb8a5563.svg",
+    "index.html": "/samurai-way-main/index.html",
+    "main.25927c43.css.map": "/samurai-way-main/static/css/main.25927c43.css.map",
+    "main.d320f8cf.js.map": "/samurai-way-main/static/js/main.d320f8cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25927c43.css",
+    "static/js/main.d320f8cf.js"
+  ]
+}
