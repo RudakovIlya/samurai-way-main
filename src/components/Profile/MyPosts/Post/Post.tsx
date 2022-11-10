@@ -1,5 +1,5 @@
 import React from "react";
-import classes from './Post.module.css';
+import styles from './Post.module.css';
 
 type PostTypePros = {
     message: string,
@@ -9,7 +9,7 @@ type PostTypePros = {
 
 const Post = (props: PostTypePros) => {
     return (
-        <li className={classes.item}>
+        <li className={styles.item}>
             <img src={props.avatar} alt="avatar"/>
             <span>{props.message}</span>
             <div>

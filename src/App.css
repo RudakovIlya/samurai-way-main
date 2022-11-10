@@ -1,11 +1,11 @@
 body {
-    background-color: #182636;
+    background-color: #EDEEF0;
 }
 
 .app-wrapper {
     margin: 0 auto;
     padding: 15px 15px 0 15px;
-    max-width: 1600px;
+    max-width: 1440px;
     display: grid;
     grid-template-areas:
           'header header'
@@ -15,7 +15,9 @@ body {
     grid-gap: 10px;
 }
 
-.content {
+.app-wrapper-content {
     grid-area: content;
-    background-color: cornflowerblue;
+    background: #ffffff;
+    border-radius: 10px;
+    height: 100%;
 }

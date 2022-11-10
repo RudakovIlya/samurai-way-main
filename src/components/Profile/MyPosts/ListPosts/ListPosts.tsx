@@ -1,11 +1,11 @@
 import React from "react";
-import classes from './ListPosts.module.css';
+import styles from './ListPosts.module.css';
 import Post from "../Post/Post";
 
 
 const ListPosts = () => {
     return (
-        <ul className={classes.list}>
+        <ul className={styles.list}>
             <Post message={'Hi, how are you?'}
                   avatar={'https://static.1tv.ru/uploads/photo/image/2/huge/4062_huge_876c41f50e.jpg'} likesCount={12}/>
             <Post message={'It`s my first post'}

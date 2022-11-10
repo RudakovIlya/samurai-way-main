@@ -1,8 +1,7 @@
 .nav {
     grid-area: nav;
-    background-color: #0d88c9;
-    border-radius: 16px;
-    height: 100vh;
+    border-radius: 10px;
+    height: 100%;
 }
 
 .list {
@@ -14,7 +13,7 @@
     list-style-type: none;
 }
 
-.item{
+.item {
     display: flex;
     align-items: center;
     column-gap: 10px;
@@ -22,11 +21,12 @@
 
 .item a {
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #2A5885;
     text-decoration: none;
 }
+
 .item img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
 }
