@@ -1,0 +1,44 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+  grid-area: footer;
+
+  .list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    flex: 1 1 auto;
+    padding: 0;
+  }
+
+  .item {
+    display: flex;
+    column-gap: 15px;
+    justify-content: center;
+    flex: 0 1 33.333%;
+    color: #2A5885;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 136%;
+    text-align: center;
+
+    &:nth-child(1) {
+      justify-content: flex-start;
+    }
+
+    &:nth-child(3) {
+      justify-content: flex-end;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

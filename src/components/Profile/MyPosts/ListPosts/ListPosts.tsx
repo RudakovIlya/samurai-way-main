@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './ListPosts.module.css';
+import styles from './ListPosts.module.scss';
 import Post from "../Post/Post";
 
 

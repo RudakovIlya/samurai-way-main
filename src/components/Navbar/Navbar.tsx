@@ -1,38 +1,39 @@
 import React from "react";
-import styles from './Navbar.module.css';
-import icon from './hooli-logo.svg'
-import settings from './settings_16.svg'
-import home from './home.svg'
-import music from './music.svg'
-import mes from './message.svg'
-import news from './news.svg'
+import styles from './Navbar.module.scss';
+import settings from './icons/settings_16.svg'
+import home from './icons/home.svg'
+import music from './icons/music.svg'
+import mes from './icons/message.svg'
+import news from './icons/news.svg'
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
     return (
         <nav className={styles.nav}>
             <ul className={styles.list}>
-                <li className={`${styles.item} ${styles.active}`}>
+                <li className={`${styles.item}`}>
                     <img src={home} alt="message"/>
-                    <a href={'#s'}>Profile</a>
+                    <NavLink to={'/profile'} activeClassName={styles.activeLink}>Profile</NavLink>
                 </li>
                 <li className={styles.item}>
                     <img src={mes} alt="message"/>
-                    <a href={'#s'}>Messages</a>
+                    <NavLink to={'/dialogs'} activeClassName={styles.activeLink}>Messages</NavLink>
                 </li>
                 <li className={styles.item}>
                     <img src={news} alt="message"/>
-                    <a href={'#s'}>News</a>
+                    <NavLink to={'/news'}>News</NavLink>
                 </li>
                 <li className={styles.item}>
                     <img src={music} alt="music"/>
-                    <a href={'#s'}>Music</a>
+                    <NavLink to={'/music'}>Music</NavLink>
                 </li>
                 <li className={`${styles.item} ${styles.rotate}`}>
                     <img src={settings} alt="settings"/>
-                    <a href={'#s'}>Settings</a>
+                    <NavLink to={'/settings'}>Settings</NavLink>
                 </li>
             </ul>
         </nav>
     );
 };
+
 export default Navbar;
