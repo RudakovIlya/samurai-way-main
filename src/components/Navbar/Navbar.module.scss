@@ -2,6 +2,7 @@
   grid-area: nav;
   border-radius: 10px;
   height: 100%;
+
   .list {
     margin: 0;
     display: flex;
@@ -14,9 +15,11 @@
       display: flex;
       align-items: center;
       column-gap: 10px;
-      .activeLink{
+
+      .activeLink {
         color: rgb(4, 133, 255);
       }
+
       a {
         font-size: 1.5rem;
         color: #2A5885;
@@ -32,6 +35,10 @@
         height: 40px;
         object-fit: cover;
       }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: row;
     }
   }
 }

@@ -2,6 +2,7 @@
     margin: 0 auto;
     padding: 15px 15px 0 15px;
     max-width: 1440px;
+    min-height: 100%;
     display: grid;
     grid-template-areas:
           'header header'
@@ -9,15 +10,25 @@
 'footer footer';
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
+    grid-gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .app-wrapper {
+        display: grid;
+        grid-template-areas:
+          'header header header'
+          'nav nav nav '
+          'content content content'
+          'footer footer footer';
+        grid-template-rows: 60px 60px 1fr 60px;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+    }
 }
 
 .app-wrapper-content {
-    min-height: 80vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     grid-area: content;
     background: #ffffff;
     border-radius: 10px;
-    margin-bottom: 100px;
 }
