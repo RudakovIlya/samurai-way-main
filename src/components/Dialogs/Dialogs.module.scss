@@ -1,3 +1,43 @@
-//.cont {
-//  background-color: red;
-//}
+.dialogsContainer {
+  display: flex;
+
+  .column {
+    flex: 0 1 50%;
+  }
+
+  .list {
+    background-color: saddlebrown;
+  }
+
+  /*------Dialogs------*/
+
+  .Dialogs {
+    color: red;
+
+    .listDialogs {
+      //display: flex;
+      color: #0d88c9;
+
+      .dialog {
+        color: rebeccapurple;
+      }
+    }
+
+  }
+
+  /*------Messages------*/
+
+  .Messages {
+    color: #0d88c9;
+
+    .listMessages {
+      color: darkblue;
+
+      .message {
+        color: darkcyan;
+      }
+    }
+  }
+
+
+}
