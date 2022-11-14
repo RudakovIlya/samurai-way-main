@@ -1,12 +1,12 @@
-import classes from './MyPosts.module.css';
+import styles from './MyPosts.module.scss';
 import ListPosts from "./ListPosts/ListPosts";
 
 const MyPosts = () => {
     return (
-        <div>
+        <div className={styles.MyPostBlock}>
             <h2>My Posts</h2>
-            <div>
-                <textarea></textarea>
+            <div className={styles.SendBlock}>
+                <textarea placeholder={'Enter Text'}></textarea>
                 <button>Add post</button>
             </div>
             <ListPosts/>

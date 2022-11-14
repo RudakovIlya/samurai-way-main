@@ -1,0 +1,15 @@
+.ProfileInfoBlock {
+  .imageBlock {
+    .image {
+      border-radius: 10px;
+      width: 100%;
+      min-height: 250px;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .Description {
+    padding: 20px;
+  }
+}
