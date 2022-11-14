@@ -1,4 +1,3 @@
-import React from "react";
 import styles from './Navbar.module.scss';
 import settings from './icons/settings_16.svg';
 import home from './icons/home.svg';

@@ -1,43 +1,21 @@
 .dialogsContainer {
-  display: flex;
-
-  .column {
-    flex: 0 1 50%;
-  }
-
-  .list {
-    background-color: saddlebrown;
-  }
+  display: grid;
+  column-gap: 15px;
+  min-height: 100%;
+  grid-template-columns: minmax(100px, 4fr) minmax(100px, 8fr);
+  grid-template-rows: 1fr;
 
   /*------Dialogs------*/
-
-  .Dialogs {
-    color: red;
-
-    .listDialogs {
-      //display: flex;
-      color: #0d88c9;
-
-      .dialog {
-        color: rebeccapurple;
-      }
-    }
-
+  .DialogsList {
+    padding: 10px;
+    height: 100%;
+    border-right: 2px solid #2A5885;;
   }
+
 
   /*------Messages------*/
-
-  .Messages {
-    color: #0d88c9;
-
-    .listMessages {
-      color: darkblue;
-
-      .message {
-        color: darkcyan;
-      }
-    }
+  .MessagesList {
+    padding: 10px;
   }
-
 
 }
