@@ -1,6 +1,7 @@
 import styles from './Post.module.scss';
 
-type PostTypePros = {
+export type PostTypePros = {
+    id: number,
     message: string,
     avatar: string,
     likesCount: number,

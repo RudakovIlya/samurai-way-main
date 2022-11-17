@@ -19,7 +19,7 @@ const Navbar = () => {
             icon: mes,
             altText: 'message',
             path: '/dialogs',
-            linkName: 'Messages'
+            linkName: 'Message'
         },
         {
             icon: news,
