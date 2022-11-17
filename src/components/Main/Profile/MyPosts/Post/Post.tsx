@@ -6,7 +6,7 @@ type PostTypePros = {
     likesCount: number,
 }
 
-const Post = (props: PostTypePros) => {
+export const Post = (props: PostTypePros) => {
     return (
         <li className={styles.item}>
             <img src={props.avatar} alt="avatar"/>
@@ -17,5 +17,3 @@ const Post = (props: PostTypePros) => {
         </li>
     );
 };
-
-export default Post;

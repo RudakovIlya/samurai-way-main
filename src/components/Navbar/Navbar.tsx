@@ -4,32 +4,53 @@ import home from './icons/home.svg';
 import music from './icons/music.svg';
 import mes from './icons/message.svg';
 import news from './icons/news.svg';
-import {NavLink} from "react-router-dom";
+import {NavItem, NavItemPropsType} from "./NavItem/NavItem";
 
 const Navbar = () => {
+
+    const navItemElements: Array<NavItemPropsType> = [
+        {
+            icon: home,
+            altText: 'home',
+            path: '/profile',
+            linkName: 'Profile'
+        },
+        {
+            icon: mes,
+            altText: 'message',
+            path: '/dialogs',
+            linkName: 'Messages'
+        },
+        {
+            icon: news,
+            altText: 'news',
+            path: '/news',
+            linkName: 'News'
+        },
+        {
+            icon: music,
+            altText: 'music',
+            path: '/music',
+            linkName: 'Music',
+        },
+        {
+            icon: settings,
+            altText: 'settings',
+            path: '/settings',
+            linkName: 'Settings'
+        },
+    ]
+
+    const navItems = navItemElements.map((item, index) => {
+        return (
+            <NavItem key={index} icon={item.icon} altText={item.altText} path={item.path} linkName={item.linkName}/>
+        )
+    })
+
     return (
         <nav className={styles.nav}>
             <ul className={styles.list}>
-                <li className={`${styles.item}`}>
-                    <img src={home} alt="message"/>
-                    <NavLink to={'/profile'} activeClassName={styles.activeLink}>Profile</NavLink>
-                </li>
-                <li className={styles.item}>
-                    <img src={mes} alt="message"/>
-                    <NavLink to={'/dialogs'} activeClassName={styles.activeLink}>Messages</NavLink>
-                </li>
-                <li className={styles.item}>
-                    <img src={news} alt="message"/>
-                    <NavLink to={'/news'} activeClassName={styles.activeLink}>News</NavLink>
-                </li>
-                <li className={styles.item}>
-                    <img src={music} alt="music"/>
-                    <NavLink to={'/music'} activeClassName={styles.activeLink}>Music</NavLink>
-                </li>
-                <li className={`${styles.item} ${styles.rotate}`}>
-                    <img src={settings} alt="settings"/>
-                    <NavLink to={'/settings'} activeClassName={styles.activeLink}>Settings</NavLink>
-                </li>
+                {navItems}
             </ul>
         </nav>
     );

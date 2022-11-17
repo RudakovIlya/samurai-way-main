@@ -1,5 +1,5 @@
 import styles from './ListPosts.module.scss';
-import Post from "../Post/Post";
+import {Post} from "../Post/Post";
 
 const ListPosts = () => {
     return (

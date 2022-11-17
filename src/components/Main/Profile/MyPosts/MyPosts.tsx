@@ -1,6 +1,7 @@
 import styles from './MyPosts.module.scss';
 import ListPosts from "./ListPosts/ListPosts";
 
+
 const MyPosts = () => {
     return (
         <div className={styles.MyPostBlock}>
