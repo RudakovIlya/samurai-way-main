@@ -1,15 +1,21 @@
 import styles from './Profile.module.scss';
 import MyPosts from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
+import {ProfilePageType} from "../../../redux/state";
+import React from "react";
 
-const Profile = () => {
+type ProfilePropsType = {
+    profilePage: ProfilePageType
+}
+
+export const Profile: React.FC<ProfilePropsType> = ({profilePage}) => {
+    const {posts} = profilePage
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts posts={posts}/>
         </div>
 
     );
 };
 
-export default Profile;

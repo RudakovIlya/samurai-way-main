@@ -1,32 +1,22 @@
 import React from "react";
 import styles from './Dialogs.module.scss'
-import {Message, MessageItemType} from "./Message/Message";
-import {Dialog, DialogItemType} from "./Dialog/Dialog";
+import {Message} from "./Message/Message";
+import {Dialog} from "./Dialog/Dialog";
+import {DialogPageType} from "../../../redux/state";
 
+type DialogsPropsType = {
+    dialogPage: DialogPageType
+}
 
-export const Dialogs = () => {
+export const Dialogs: React.FC<DialogsPropsType> = ({dialogPage: {dialogs, messages}}) => {
 
-    const dialogsData: Array<DialogItemType> = [
-        {id: 1, name: 'Dimych',},
-        {id: 2, name: 'Ilych',},
-        {id: 3, name: 'Yana',},
-        {id: 4, name: 'Viktor',},
-    ]
-
-    const messagesData: Array<MessageItemType> = [
-        {id: 1, text: 'Hello'},
-        {id: 2, text: 'Hi'},
-        {id: 3, text: 'Hello my Incubator'},
-        {id: 4, text: 'YO!!!!'},
-    ]
-
-    const dialogsElement = dialogsData.map((dialog) => {
+    const dialogsElement = dialogs.map(({id, name}) => {
         return (
-            <Dialog key={dialog.id} id={dialog.id} name={dialog.name}/>
+            <Dialog key={id} id={id} name={name}/>
         )
     });
 
-    const messagesElement = messagesData.map((message) => {
+    const messagesElement = messages.map((message) => {
         return (
             <Message key={message.id} text={message.text} id={message.id}/>
         )

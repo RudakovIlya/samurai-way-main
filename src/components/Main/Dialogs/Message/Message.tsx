@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "../Dialogs.module.scss";
 
-export type MessageItemType = {
-    id: number,
+export type MessageItemPropsType = {
+    id: string,
     text: string
 }
 
-export const Message: React.FC<MessageItemType> = (props) => {
+export const Message: React.FC<MessageItemPropsType> = ({id, text}) => {
     return (
-        <li className={styles.MessagesListItem}>{props.text}</li>
+        <li id={id} className={styles.MessagesListItem}>{text}</li>
     )
 }

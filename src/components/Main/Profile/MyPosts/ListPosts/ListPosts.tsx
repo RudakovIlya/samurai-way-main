@@ -1,15 +1,17 @@
+import React from "react";
 import styles from './ListPosts.module.scss';
-import {Post, PostTypePros} from "../Post/Post";
+import {Post} from "./Post/Post";
+import {PostsType} from "../../../../../redux/state";
 
-type ListPosts = {
-    posts: Array<PostTypePros>
+type ListPropsType = {
+    posts: PostsType[]
 }
 
-const ListPosts = (props: ListPosts) => {
+const ListPosts: React.FC<ListPropsType> = ({posts}) => {
 
-    const postItem = props.posts.map(post => {
+    const postItem = posts.map(({id, message, likesCount, avatar}) => {
         return (
-            <Post id={post.id} message={post.message} likesCount={post.likesCount} avatar={post.avatar}/>
+            <Post key={id} id={id} message={message} likesCount={likesCount} avatar={avatar}/>
         )
     })
 
@@ -17,7 +19,6 @@ const ListPosts = (props: ListPosts) => {
         <ul className={styles.list}>
             {postItem}
         </ul>
-
     );
 };
 

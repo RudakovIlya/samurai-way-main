@@ -1,49 +1,18 @@
+import React from "react";
 import styles from './Navbar.module.scss';
-import settings from './icons/settings_16.svg';
-import home from './icons/home.svg';
-import music from './icons/music.svg';
-import mes from './icons/message.svg';
-import news from './icons/news.svg';
-import {NavItem, NavItemPropsType} from "./NavItem/NavItem";
+import {NavItem} from "./NavItem/NavItem";
+import {SidebarType} from "../../redux/state";
+import {Friends} from "./Friends/Friends";
 
-const Navbar = () => {
+type NavBarPropsType = {
+    sidebar: SidebarType
+}
 
-    const navItemElements: Array<NavItemPropsType> = [
-        {
-            icon: home,
-            altText: 'home',
-            path: '/profile',
-            linkName: 'Profile'
-        },
-        {
-            icon: mes,
-            altText: 'message',
-            path: '/dialogs',
-            linkName: 'Message'
-        },
-        {
-            icon: news,
-            altText: 'news',
-            path: '/news',
-            linkName: 'News'
-        },
-        {
-            icon: music,
-            altText: 'music',
-            path: '/music',
-            linkName: 'Music',
-        },
-        {
-            icon: settings,
-            altText: 'settings',
-            path: '/settings',
-            linkName: 'Settings'
-        },
-    ]
+const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
 
-    const navItems = navItemElements.map((item, index) => {
+    const navItems = link.map(({id, icon, altText, path, linkName}) => {
         return (
-            <NavItem key={index} icon={item.icon} altText={item.altText} path={item.path} linkName={item.linkName}/>
+            <NavItem key={id} icon={icon} altText={altText} path={path} linkName={linkName}/>
         )
     })
 

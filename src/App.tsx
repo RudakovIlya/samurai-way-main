@@ -5,15 +5,19 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Main} from "./components/Main/Main";
 import {Footer} from "./components/Footer/Footer";
+import {RootStateType} from "./redux/state";
 
+type AppType = {
+    state: RootStateType
+}
 
-const App = () => {
+const App: React.FC<AppType> = ({state: {sidebar, profilePage, dialogPage}}) => {
     return (
         <BrowserRouter>
             <div className={'app-wrapper'}>
                 <Header/>
-                <Navbar/>
-                <Main/>
+                <Navbar sidebar={sidebar}/>
+                <Main profilePage={profilePage} dialogPage={dialogPage}/>
                 <Footer/>
             </div>
         </BrowserRouter>
