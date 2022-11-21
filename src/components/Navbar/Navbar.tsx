@@ -21,6 +21,9 @@ const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
             <ul className={styles.list}>
                 {navItems}
             </ul>
+            <ul>
+
+            </ul>
         </nav>
     );
 };

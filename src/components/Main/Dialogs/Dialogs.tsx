@@ -10,15 +10,15 @@ type DialogsPropsType = {
 
 export const Dialogs: React.FC<DialogsPropsType> = ({dialogPage: {dialogs, messages}}) => {
 
-    const dialogsElement = dialogs.map(({id, name}) => {
+    const dialogsElement = dialogs.map(({id, name, avatar}) => {
         return (
-            <Dialog key={id} id={id} name={name}/>
+            <Dialog id={id} key={id} name={name} avatar={avatar}/>
         )
     });
 
     const messagesElement = messages.map((message) => {
         return (
-            <Message key={message.id} text={message.text} id={message.id}/>
+            <Message key={message.id} text={message.text}/>
         )
     })
 

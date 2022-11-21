@@ -2,16 +2,29 @@
   display: grid;
   column-gap: 15px;
   min-height: 100%;
+  max-height: 80vh;
   grid-template-columns: minmax(100px, 4fr) minmax(100px, 8fr);
   grid-template-rows: 1fr;
-
   /*------Dialogs------*/
   .DialogsList {
     padding: 10px;
     height: 100%;
-    border-right: 2px solid #2A5885;;
-  }
+    border-right: 2px solid #2A5885;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 3px;
+      display: block;
+    }
 
+    &::-webkit-scrollbar-track {
+      background: inherit;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #939393;
+      border-radius: 20px;
+    }
+  }
 
   /*------Message------*/
   .MessagesList {

@@ -8,9 +8,9 @@ type FriendsPropsType = {
 
 export const Friends: React.FC<FriendsPropsType> = ({id, name, avatar}) => {
     return (
-        <ul>
+        <li>
 
-        </ul>
+        </li>
     );
 };
 

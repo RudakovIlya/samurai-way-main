@@ -1,0 +1,50 @@
+.DialogItem {
+  cursor: pointer;
+  padding: 8px;
+
+  .Dialog {
+    display: flex;
+    column-gap: 15px;
+    width: 100%;
+    color: #545454;
+    padding: 10px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+
+    &.active {
+      color: #ffffff;
+      background-color: #397dcc;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    }
+
+    .DialogDescription {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .name {
+        color: inherit;
+        font-weight: 600;
+
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+
+      .text {
+        font-size: 12.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+}
