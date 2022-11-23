@@ -6,17 +6,20 @@ import React from "react";
 
 type MyPostsPropsType = {
     posts: PostsType[]
+    addPost: (postMessage: string, posts: PostsType[]) => void
 }
 
-const MyPosts: React.FC<MyPostsPropsType> = ({posts}) => {
+const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost}) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
 
     const onClickButtonHandler = () => {
-        let text = newPostElement.current?.value
-        alert(text)
-    }
+        const text = newPostElement.current?.value;
+        if (text) {
+            addPost(text, posts);
+        }
 
+    }
 
     return (
         <div className={styles.MyPostBlock}>

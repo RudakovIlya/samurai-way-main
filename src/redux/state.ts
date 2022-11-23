@@ -1,10 +1,10 @@
 import {v1} from "uuid";
-import {NavItemPropsType} from "../components/Navbar/NavItem/NavItem";
 import home from "../components/Navbar/icons/home.svg";
 import mes from "../components/Navbar/icons/message.svg";
 import news from "../components/Navbar/icons/news.svg";
 import music from "../components/Navbar/icons/music.svg";
 import settings from "../components/Navbar/icons/settings_16.svg";
+import {rerenderEntireTree} from "../render";
 
 /* ProfilePage */
 
@@ -188,5 +188,12 @@ const state: RootStateType = {
         ]
     },
 };
+
+
+export const addPost = (postMessage: string, posts: PostsType[]) => {
+    const newPost: PostsType = {id: v1(), message: postMessage, avatar: settings, likesCount: 0}
+    posts.push(newPost);
+    rerenderEntireTree(state);
+}
 
 export default state
