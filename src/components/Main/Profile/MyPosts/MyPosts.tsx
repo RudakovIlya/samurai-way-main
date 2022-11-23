@@ -10,13 +10,20 @@ type MyPostsPropsType = {
 
 const MyPosts: React.FC<MyPostsPropsType> = ({posts}) => {
 
+    const newPostElement = React.createRef<HTMLTextAreaElement>()
+
+    const onClickButtonHandler = () => {
+        let text = newPostElement.current?.value
+        alert(text)
+    }
+
+
     return (
         <div className={styles.MyPostBlock}>
             <h2>My Posts</h2>
             <div className={styles.SendBlock}>
-                <textarea placeholder={'Enter Text'}></textarea>
-                <Button name={'Add Post'} callBack={() => {
-                }}/>
+                <textarea ref={newPostElement} placeholder={'Enter Text'}></textarea>
+                <Button name={'Add Post'} callBack={onClickButtonHandler}/>
             </div>
             <ListPosts posts={posts}/>
         </div>

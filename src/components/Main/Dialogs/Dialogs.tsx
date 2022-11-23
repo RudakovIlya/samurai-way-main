@@ -27,9 +27,15 @@ export const Dialogs: React.FC<DialogsPropsType> = ({dialogPage: {dialogs, messa
             <ul className={`${styles.DialogsList}`}>
                 {dialogsElement}
             </ul>
-            <ul className={`${styles.MessagesList}`}>
-                {messagesElement}
-            </ul>
+            <div className={styles.MessagesContainer}>
+                <ul className={`${styles.MessagesList}`}>
+                    {messagesElement}
+                </ul>
+                <div className={styles.MessagesSendPanel}>
+                    <textarea placeholder={'Message'} className={styles.MessagesTexArea}></textarea>
+                   <button>send</button>
+                </div>
+            </div>
         </div>
     )
 };

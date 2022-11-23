@@ -8,8 +8,7 @@ type ProfilePropsType = {
     profilePage: ProfilePageType
 }
 
-export const Profile: React.FC<ProfilePropsType> = ({profilePage}) => {
-    const {posts} = profilePage
+export const Profile: React.FC<ProfilePropsType> = ({profilePage: {posts}}) => {
     return (
         <div>
             <ProfileInfo/>
