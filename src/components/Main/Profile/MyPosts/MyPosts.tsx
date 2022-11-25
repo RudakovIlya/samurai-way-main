@@ -1,8 +1,8 @@
 import styles from './MyPosts.module.scss';
 import ListPosts from "./ListPosts/ListPosts";
-import {Button} from "../../Button/Button";
 import {PostsType} from "../../../../redux/state";
 import React from "react";
+import SuperButton from "../../../Buttons/SuperButton/SuperButton";
 
 type MyPostsPropsType = {
     posts: PostsType[]
@@ -14,11 +14,10 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost}) => {
     const newPostElement = React.createRef<HTMLTextAreaElement>()
 
     const onClickButtonHandler = () => {
-        const text = newPostElement.current?.value;
-        if (text) {
-            addPost(text, posts);
+        if (newPostElement.current) {
+            addPost(newPostElement.current.value, posts);
+            newPostElement.current.value = '';
         }
-
     }
 
     return (
@@ -26,7 +25,10 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost}) => {
             <h2>My Posts</h2>
             <div className={styles.SendBlock}>
                 <textarea ref={newPostElement} placeholder={'Enter Text'}></textarea>
-                <Button name={'Add Post'} callBack={onClickButtonHandler}/>
+                <SuperButton className={styles.position} onClick={onClickButtonHandler} xType={'primary'}
+                             buttonSize={'large'}>
+                    Default
+                </SuperButton>
             </div>
             <ListPosts posts={posts}/>
         </div>

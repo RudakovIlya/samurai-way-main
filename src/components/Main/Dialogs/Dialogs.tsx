@@ -3,6 +3,7 @@ import styles from './Dialogs.module.scss'
 import {Message} from "./Message/Message";
 import {Dialog} from "./Dialog/Dialog";
 import {DialogPageType} from "../../../redux/state";
+import SuperButton from "../../Buttons/SuperButton/SuperButton";
 
 type DialogsPropsType = {
     dialogPage: DialogPageType
@@ -32,8 +33,13 @@ export const Dialogs: React.FC<DialogsPropsType> = ({dialogPage: {dialogs, messa
                     {messagesElement}
                 </ul>
                 <div className={styles.MessagesSendPanel}>
-                    <textarea placeholder={'Message'} className={styles.MessagesTexArea}></textarea>
-                   <button>send</button>
+                    <textarea placeholder={'Message'} className={styles.MessagesTexArea}>
+
+                    </textarea>
+                    <SuperButton onClick={() => alert('Send')} xType={'primary'} buttonSize={'large'}>
+                        Send
+                    </SuperButton>
+
                 </div>
             </div>
         </div>
