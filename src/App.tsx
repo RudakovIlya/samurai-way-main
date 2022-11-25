@@ -5,14 +5,15 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Main} from "./components/Main/Main";
 import {Footer} from "./components/Footer/Footer";
-import {PostsType, RootStateType} from "./redux/state";
+import {RootStateType} from "./redux/state";
 
 type AppType = {
     state: RootStateType
-    addPost: (postMessage: string, posts: PostsType[]) => void
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
 }
 
-const App: React.FC<AppType> = ({state: {sidebar, profilePage, dialogPage}, addPost}) => {
+const App: React.FC<AppType> = ({state: {sidebar, profilePage, dialogPage}, addPost, updateNewPostText}) => {
     return (
         <BrowserRouter>
             <div className={'app-wrapper'}>
@@ -20,6 +21,7 @@ const App: React.FC<AppType> = ({state: {sidebar, profilePage, dialogPage}, addP
                 <Navbar sidebar={sidebar}/>
                 <Main profilePage={profilePage}
                       addPost={addPost}
+                      updateNewPostText={updateNewPostText}
                       dialogPage={dialogPage}
                 />
                 <Footer/>

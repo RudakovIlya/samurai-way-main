@@ -1,19 +1,23 @@
-import styles from './Profile.module.scss';
 import MyPosts from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {PostsType, ProfilePageType} from "../../../redux/state";
+import {ProfilePageType} from "../../../redux/state";
 import React from "react";
 
 type ProfilePropsType = {
     profilePage: ProfilePageType
-    addPost: (postMessage: string, posts: PostsType[]) => void
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
 }
 
-export const Profile: React.FC<ProfilePropsType> = ({profilePage: {posts}, addPost}) => {
+export const Profile: React.FC<ProfilePropsType> = ({
+                                                        profilePage: {posts, newPostText},
+                                                        addPost,
+                                                        updateNewPostText
+                                                    }) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts posts={posts} addPost={addPost}/>
+            <MyPosts updateNewPostText={updateNewPostText} posts={posts} addPost={addPost} newPostText={newPostText}/>
         </div>
 
     );

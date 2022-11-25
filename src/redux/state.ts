@@ -4,7 +4,9 @@ import mes from "../components/Navbar/icons/message.svg";
 import news from "../components/Navbar/icons/news.svg";
 import music from "../components/Navbar/icons/music.svg";
 import settings from "../components/Navbar/icons/settings_16.svg";
-import {rerenderEntireTree} from "../render";
+
+let rerenderEntireTree = () => {
+}
 
 /* ProfilePage */
 
@@ -17,6 +19,7 @@ export type PostsType = {
 
 export type ProfilePageType = {
     posts: PostsType[]
+    newPostText: string
 }
 
 /*DialogsPage*/
@@ -94,7 +97,8 @@ const state: RootStateType = {
                 avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
                 likesCount: 12
             },
-        ]
+        ],
+        newPostText: ''
     },
     dialogPage: {
         dialogs: [
@@ -190,10 +194,31 @@ const state: RootStateType = {
 };
 
 
-export const addPost = (postMessage: string, posts: PostsType[]) => {
-    const newPost: PostsType = {id: v1(), message: postMessage, avatar: settings, likesCount: 0}
-    posts.push(newPost);
-    rerenderEntireTree(state);
+export const addPost = () => {
+    // new post
+    const newPost: PostsType = {
+        id: v1(),
+        message: state.profilePage.newPostText.trim(),
+        avatar: settings,
+        likesCount: 0
+    }
+    // adding new post in posts array
+    if (state.profilePage.newPostText.trim()) {
+        state.profilePage.posts.push(newPost);
+        // zeroing post text
+        updateNewPostText('');
+        // rerender App  with new data
+        rerenderEntireTree()
+    }
 }
 
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree()
+}
+
+export const subscribe = (observer: () => void) => {
+    console.log('subscribe')
+    rerenderEntireTree = observer;
+}
 export default state
