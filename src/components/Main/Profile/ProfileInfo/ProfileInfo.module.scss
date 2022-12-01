@@ -1,6 +1,6 @@
-.ProfileInfoBlock {
-  .imageBlock {
-    .image {
+.info {
+  .image {
+    img {
       border-radius: 10px;
       width: 100%;
       min-height: 250px;
@@ -9,7 +9,7 @@
     }
   }
 
-  .Description {
+  .description {
     padding: 20px;
   }
 }

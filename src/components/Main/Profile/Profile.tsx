@@ -10,7 +10,10 @@ type ProfilePropsType = {
 }
 
 export const Profile: React.FC<ProfilePropsType> = ({
-                                                        profilePage: {posts, newPostText},
+                                                        profilePage: {
+                                                            posts,
+                                                            newPostText
+                                                        },
                                                         addPost,
                                                         updateNewPostText
                                                     }) => {

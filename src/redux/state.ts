@@ -217,7 +217,6 @@ export const updateNewPostText = (newText: string) => {
 }
 
 export const subscribe = (observer: () => void) => {
-    console.log('subscribe')
     rerenderEntireTree = observer;
 }
 

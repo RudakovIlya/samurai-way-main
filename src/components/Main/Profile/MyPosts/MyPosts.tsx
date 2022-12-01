@@ -35,9 +35,9 @@ const MyPosts: React.FC<MyPostsPropsType> = ({
     }
 
     return (
-        <div className={styles.MyPostBlock}>
+        <div className={styles.posts}>
             <h2>My Posts</h2>
-            <div className={styles.SendBlock}>
+            <div className={styles.send}>
                 <textarea onKeyDown={addPostOnKeyDownHandler} onChange={onPostChange} value={newPostText}
                           ref={newPostElement}
                           placeholder={'Enter Text'}></textarea>
