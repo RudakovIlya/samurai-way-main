@@ -9,10 +9,10 @@ type DialogItemPropsType = {
 
 export const Dialog: React.FC<DialogItemPropsType> = ({dialog: {id, name, avatar}}) => {
     return (
-        <li className={styles.DialogItem}>
-            <NavLink activeClassName={styles.active} className={styles.Dialog} to={`/dialogs/${id}`}>
+        <li className={styles.item}>
+            <NavLink activeClassName={styles.active} className={styles.dialog} to={`/dialogs/${id}`}>
                 <img src={avatar} alt={`dialog/${name}`}/>
-                <div className={styles.DialogDescription}>
+                <div className={styles.description}>
                     <span className={`${styles.name} ${styles.span}`}>{name}</span>
                     <span className={`${styles.text} ${styles.span}`}>text</span>
                 </div>

@@ -30,16 +30,16 @@ export const Dialogs: React.FC<DialogsPropsType> = ({
     })
 
     return (
-        <div className={styles.dialogsContainer}>
-            <ul className={`${styles.DialogsList}`}>
+        <div className={styles.dialogs}>
+            <ul className={`${styles.dialogs_list}`}>
                 {dialogsElement}
             </ul>
-            <div className={styles.MessagesContainer}>
-                <ul className={`${styles.MessagesList}`}>
+            <div className={styles.messages}>
+                <ul className={`${styles.messages_list}`}>
                     {messagesElement}
                 </ul>
-                <div className={styles.MessagesSendPanel}>
-                    <textarea placeholder={'Message'} className={styles.MessagesTexArea}>
+                <div className={styles.send}>
+                    <textarea placeholder={'Message'} className={styles.textarea}>
 
                     </textarea>
                     <SuperButton onClick={() => alert('Send')} xType={'primary'} buttonSize={'large'}>

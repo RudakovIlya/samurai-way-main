@@ -5,7 +5,7 @@ import styles from './Header.module.scss'
 const Header: React.FC = () => {
     return (
         <header className={styles.header}>
-            <img src={icon} alt={'compass'}/>
+            <img className={styles.image} src={icon} alt={'hooli-logo'}/>
         </header>
 
     );

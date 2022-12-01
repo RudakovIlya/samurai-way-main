@@ -1,11 +1,11 @@
-.dialogsContainer {
+.dialogs {
   display: grid;
   min-height: 100%;
   max-height: 80vh;
   grid-template-columns: minmax(100px, 4fr) minmax(100px, 8fr);
   grid-template-rows: 1fr;
   /*------Dialogs------*/
-  .DialogsList {
+  .dialogs_list {
     padding: 10px;
     height: 100%;
     border-right: 1px solid #2A5885;
@@ -27,16 +27,16 @@
   }
 
   /*------Message------*/
-  .MessagesContainer {
+  .messages {
     display: flex;
     flex-direction: column;
 
-    .MessagesList {
+    .messages_list {
       flex: 1 1 auto;
       padding: 10px;
     }
 
-    .MessagesSendPanel {
+    .send {
       display: flex;
       column-gap: 15px;
       padding: 12px;
@@ -45,7 +45,7 @@
       border-top: 1px solid #dce1e6;
       background-color: #fafbfc;
 
-      .MessagesTexArea {
+      .textarea {
         flex: 1;
         font-size: 1rem;
         height: 54px;
