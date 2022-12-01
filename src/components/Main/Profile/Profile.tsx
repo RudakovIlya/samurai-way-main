@@ -17,7 +17,12 @@ export const Profile: React.FC<ProfilePropsType> = ({
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts updateNewPostText={updateNewPostText} posts={posts} addPost={addPost} newPostText={newPostText}/>
+            <MyPosts
+                updateNewPostText={updateNewPostText}
+                posts={posts}
+                addPost={addPost}
+                newPostText={newPostText}
+            />
         </div>
 
     );

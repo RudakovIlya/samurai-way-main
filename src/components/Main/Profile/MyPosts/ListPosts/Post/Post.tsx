@@ -8,9 +8,14 @@ export type PostPropsType = {
     likesCount: number,
 }
 
-export const Post: React.FC<PostPropsType> = ({id, message, avatar, likesCount}) => {
+export const Post: React.FC<PostPropsType> = ({
+                                                  id,
+                                                  message,
+                                                  avatar,
+                                                  likesCount
+                                              }) => {
     return (
-        <li className={styles.item}>
+        <li id={`post-id-${id}`} className={styles.item}>
             <img src={avatar} alt="avatar"/>
             <span>{message}</span>
             <div>

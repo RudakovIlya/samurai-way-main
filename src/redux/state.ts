@@ -193,7 +193,6 @@ const state: RootStateType = {
     },
 };
 
-
 export const addPost = () => {
     // new post
     const newPost: PostsType = {
@@ -221,4 +220,5 @@ export const subscribe = (observer: () => void) => {
     console.log('subscribe')
     rerenderEntireTree = observer;
 }
+
 export default state

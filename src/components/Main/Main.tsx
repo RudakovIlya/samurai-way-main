@@ -15,11 +15,17 @@ type MainPropsType = {
     updateNewPostText: (newText: string) => void
 }
 
-export const Main: React.FC<MainPropsType> = ({profilePage, dialogPage, addPost, updateNewPostText}) => {
+export const Main: React.FC<MainPropsType> = ({
+                                                  profilePage,
+                                                  dialogPage,
+                                                  addPost,
+                                                  updateNewPostText
+                                              }) => {
 
     return (
         <main className={styles.main}>
-            <Route path={'/profile'} render={() => <Profile profilePage={profilePage} addPost={addPost}
+            <Route path={'/profile'} render={() => <Profile profilePage={profilePage}
+                                                            addPost={addPost}
                                                             updateNewPostText={updateNewPostText}/>}/>
             <Route path={'/dialogs'} render={() => <Dialogs dialogPage={dialogPage}/>}/>
             <Route path={'/news'} render={() => <News/>}/>

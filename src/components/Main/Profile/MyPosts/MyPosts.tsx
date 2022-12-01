@@ -11,7 +11,12 @@ type MyPostsPropsType = {
     updateNewPostText: (newText: string) => void
 }
 
-const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updateNewPostText}) => {
+const MyPosts: React.FC<MyPostsPropsType> = ({
+                                                 posts,
+                                                 addPost,
+                                                 newPostText,
+                                                 updateNewPostText
+                                             }) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
 
@@ -24,7 +29,7 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updat
     }
 
     const addPostOnKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-        if(event.key === 'Enter') {
+        if (event.key === 'Enter') {
             addPost()
         }
     }
@@ -33,7 +38,8 @@ const MyPosts: React.FC<MyPostsPropsType> = ({posts, addPost, newPostText, updat
         <div className={styles.MyPostBlock}>
             <h2>My Posts</h2>
             <div className={styles.SendBlock}>
-                <textarea onKeyDown={addPostOnKeyDownHandler} onChange={onPostChange} value={newPostText} ref={newPostElement}
+                <textarea onKeyDown={addPostOnKeyDownHandler} onChange={onPostChange} value={newPostText}
+                          ref={newPostElement}
                           placeholder={'Enter Text'}></textarea>
                 <SuperButton className={styles.position} onClick={onClickButtonHandler} xType={'primary'}
                              buttonSize={'large'}>

@@ -9,7 +9,13 @@ type DialogsPropsType = {
     dialogPage: DialogPageType
 }
 
-export const Dialogs: React.FC<DialogsPropsType> = ({dialogPage: {dialogs, messages}}) => {
+export const Dialogs: React.FC<DialogsPropsType> = ({
+                                                        dialogPage:
+                                                            {
+                                                                dialogs,
+                                                                messages
+                                                            }
+                                                    }) => {
 
     const dialogsElement = dialogs.map(({id, name, avatar}) => {
         return (

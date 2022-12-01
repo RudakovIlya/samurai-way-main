@@ -6,7 +6,10 @@ export type MessageItemPropsType = {
     text: string
 }
 
-export const Message: React.FC<MessageItemPropsType> = ({id, text}) => {
+export const Message: React.FC<MessageItemPropsType> = ({
+                                                            id,
+                                                            text
+                                                        }) => {
     return (
         <li id={id} className={styles.MessagesListItem}>{text}</li>
     )

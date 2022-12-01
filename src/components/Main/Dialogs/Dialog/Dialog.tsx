@@ -8,7 +8,11 @@ export type DialogItemPropsType = {
     avatar: string
 }
 
-export const Dialog: React.FC<DialogItemPropsType> = ({id, name, avatar}) => {
+export const Dialog: React.FC<DialogItemPropsType> = ({
+                                                          id,
+                                                          name,
+                                                          avatar
+                                                      }) => {
     return (
         <li className={styles.DialogItem}>
             <NavLink activeClassName={styles.active} className={styles.Dialog} to={`/dialogs/${id}`}>
