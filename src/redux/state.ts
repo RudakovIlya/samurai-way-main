@@ -152,35 +152,35 @@ const state: RootStateType = {
                 id: v1(),
                 icon: home,
                 altText: 'home',
-                path: '/profile',
+                path: '/samurai-way-main/profile',
                 linkName: 'Profile'
             },
             {
                 id: v1(),
                 icon: mes,
                 altText: 'message',
-                path: '/dialogs',
+                path: '/samurai-way-main/dialogs',
                 linkName: 'Message'
             },
             {
                 id: v1(),
                 icon: news,
                 altText: 'news',
-                path: '/news',
+                path: '/samurai-way-main/news',
                 linkName: 'News'
             },
             {
                 id: v1(),
                 icon: music,
                 altText: 'music',
-                path: '/music',
+                path: '/samurai-way-main/music',
                 linkName: 'Music',
             },
             {
                 id: v1(),
                 icon: settings,
                 altText: 'settings',
-                path: '/settings',
+                path: '/samurai-way-main/settings',
                 linkName: 'Settings'
             },
         ],
