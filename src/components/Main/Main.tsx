@@ -24,13 +24,13 @@ export const Main: React.FC<MainPropsType> = ({
 
     return (
         <main className={styles.main}>
-            <Route path={'samurai-way-main/profile'} render={() => <Profile profilePage={profilePage}
+            <Route path={'/profile'} render={() => <Profile profilePage={profilePage}
                                                             addPost={addPost}
                                                             updateNewPostText={updateNewPostText}/>}/>
-            <Route path={'/samurai-way-main/dialogs'} render={() => <Dialogs dialogPage={dialogPage}/>}/>
-            <Route path={'/samurai-way-main/news'} render={() => <News/>}/>
-            <Route path={'/samurai-way-main/music'} render={() => <Music/>}/>
-            <Route path={'/samurai-way-main/settings'} render={() => <Settings/>}/>
+            <Route path={'/dialogs'} render={() => <Dialogs dialogPage={dialogPage}/>}/>
+            <Route path={'/news'} render={() => <News/>}/>
+            <Route path={'/music'} render={() => <Music/>}/>
+            <Route path={'/settings'} render={() => <Settings/>}/>
         </main>
     )
 }
