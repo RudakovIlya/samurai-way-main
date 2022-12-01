@@ -13,7 +13,7 @@ const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
         return (
             <NavItem key={id} icon={icon} altText={altText} path={path} linkName={linkName}/>
         )
-    })
+    });
 
     return (
         <nav className={styles.nav}>
