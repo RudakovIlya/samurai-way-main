@@ -9,9 +9,9 @@ type ListPropsType = {
 
 const ListPosts: React.FC<ListPropsType> = ({posts}) => {
 
-    const postItem = posts.map(({id, message, likesCount, avatar}) => {
+    const postItem = posts.map((post) => {
         return (
-            <Post key={id} id={id} message={message} likesCount={likesCount} avatar={avatar}/>
+            <Post key={post.id} post={post}/>
         )
     })
 

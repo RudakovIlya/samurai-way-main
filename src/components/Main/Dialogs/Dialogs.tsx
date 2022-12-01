@@ -17,15 +17,15 @@ export const Dialogs: React.FC<DialogsPropsType> = ({
                                                             }
                                                     }) => {
 
-    const dialogsElement = dialogs.map(({id, name, avatar}) => {
+    const dialogsElement = dialogs.map((dialog) => {
         return (
-            <Dialog id={id} key={id} name={name} avatar={avatar}/>
+            <Dialog key={dialog.id} dialog={dialog}/>
         )
     });
 
     const messagesElement = messages.map((message) => {
         return (
-            <Message key={message.id} text={message.text}/>
+            <Message key={message.id} message={message}/>
         )
     })
 
