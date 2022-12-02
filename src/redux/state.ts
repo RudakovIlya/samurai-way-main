@@ -5,9 +5,6 @@ import news from "../components/Navbar/icons/news.svg";
 import music from "../components/Navbar/icons/music.svg";
 import settings from "../components/Navbar/icons/settings_16.svg";
 
-let rerenderEntireTree = () => {
-}
-
 /* ProfilePage */
 
 export type PostsType = {
@@ -70,154 +67,169 @@ export type RootStateType = {
     sidebar: SidebarType
 }
 
-const state: RootStateType = {
-    profilePage: {
-        posts: [
-            {
-                id: v1(),
-                message: 'Hello Everyone',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                likesCount: 12
-            },
-            {
-                id: v1(),
-                message: 'Hello!',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                likesCount: 123,
-            },
-            {
-                id: v1(),
-                message: 'Hello my name is Ilych!',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                likesCount: 125
-            },
-            {
-                id: v1(),
-                message: 'Hello Everyone',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                likesCount: 12
-            },
-        ],
-        newPostText: ''
-    },
-    dialogPage: {
-        dialogs: [
-            {
-                id: v1(),
-                name: 'Ilych',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
-            },
-            {
-                id: v1(),
-                name: 'Ilych',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
-            },
-            {
-                id: v1(),
-                name: 'Ilych',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
-            },
-            {
-                id: v1(),
-                name: 'Ilych',
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
-            },
-        ],
-        messages: [
-            {
-                id: v1(),
-                text: 'Ilych',
-                avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
-            },
-            {
-                id: v1(),
-                text: 'Ilych',
-                avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
-            },
-            {
-                id: v1(),
-                text: 'Ilych',
-                avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
-            },
-            {
-                id: v1(),
-                text: 'Ilych',
-                avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
-            },
-        ],
-    },
-    sidebar: {
-        link: [
-            {
-                id: v1(),
-                icon: home,
-                altText: 'home',
-                path: '/profile',
-                linkName: 'Profile'
-            },
-            {
-                id: v1(),
-                icon: mes,
-                altText: 'message',
-                path: '/dialogs',
-                linkName: 'Message'
-            },
-            {
-                id: v1(),
-                icon: news,
-                altText: 'news',
-                path: '/news',
-                linkName: 'News'
-            },
-            {
-                id: v1(),
-                icon: music,
-                altText: 'music',
-                path: '/music',
-                linkName: 'Music',
-            },
-            {
-                id: v1(),
-                icon: settings,
-                altText: 'settings',
-                path: '/settings',
-                linkName: 'Settings'
-            },
-        ],
-        friends: [
-            {id: v1(), name: 'Dima', avatar: settings},
-            {id: v1(), name: 'Ilya', avatar: settings},
-            {id: v1(), name: 'Yana', avatar: settings},
-            {id: v1(), name: 'Andrei', avatar: settings},
-        ]
-    },
-};
+/*Store*/
 
-export const addPost = () => {
-    // new post
-    const newPost: PostsType = {
-        id: v1(),
-        message: state.profilePage.newPostText.trim(),
-        avatar: settings,
-        likesCount: 0
+export type StoreType = {
+    _state: RootStateType
+    getState: () => RootStateType
+    _callSubscriber: () => void
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
+    subscribe: (observer: () => void) => void
+}
+
+const store: StoreType = {
+    _state: {
+        profilePage: {
+            posts: [
+                {
+                    id: v1(),
+                    message: 'Hello Everyone',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    likesCount: 12
+                },
+                {
+                    id: v1(),
+                    message: 'Hello!',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    likesCount: 123,
+                },
+                {
+                    id: v1(),
+                    message: 'Hello my name is Ilych!',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    likesCount: 125
+                },
+                {
+                    id: v1(),
+                    message: 'Hello Everyone',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    likesCount: 12
+                },
+            ],
+            newPostText: ''
+        },
+        dialogPage: {
+            dialogs: [
+                {
+                    id: v1(),
+                    name: 'Ilych',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+                },
+                {
+                    id: v1(),
+                    name: 'Ilych',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+                },
+                {
+                    id: v1(),
+                    name: 'Ilych',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+                },
+                {
+                    id: v1(),
+                    name: 'Ilych',
+                    avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+                },
+            ],
+            messages: [
+                {
+                    id: v1(),
+                    text: 'Ilych',
+                    avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+                },
+                {
+                    id: v1(),
+                    text: 'Ilych',
+                    avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+                },
+                {
+                    id: v1(),
+                    text: 'Ilych',
+                    avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+                },
+                {
+                    id: v1(),
+                    text: 'Ilych',
+                    avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+                },
+            ],
+        },
+        sidebar: {
+            link: [
+                {
+                    id: v1(),
+                    icon: home,
+                    altText: 'home',
+                    path: '/profile',
+                    linkName: 'Profile'
+                },
+                {
+                    id: v1(),
+                    icon: mes,
+                    altText: 'message',
+                    path: '/dialogs',
+                    linkName: 'Message'
+                },
+                {
+                    id: v1(),
+                    icon: news,
+                    altText: 'news',
+                    path: '/news',
+                    linkName: 'News'
+                },
+                {
+                    id: v1(),
+                    icon: music,
+                    altText: 'music',
+                    path: '/music',
+                    linkName: 'Music',
+                },
+                {
+                    id: v1(),
+                    icon: settings,
+                    altText: 'settings',
+                    path: '/settings',
+                    linkName: 'Settings'
+                },
+            ],
+            friends: [
+                {id: v1(), name: 'Dima', avatar: settings},
+                {id: v1(), name: 'Ilya', avatar: settings},
+                {id: v1(), name: 'Yana', avatar: settings},
+                {id: v1(), name: 'Andrei', avatar: settings},
+            ]
+        },
+    },
+    getState() {
+        return this._state
+    },
+    _callSubscriber() {
+    },
+    addPost() {
+        // new post
+        const newPost: PostsType = {
+            id: v1(),
+            message: this._state.profilePage.newPostText.trim(),
+            avatar: settings,
+            likesCount: 0
+        }
+        // adding new post in posts array
+        if (this._state.profilePage.newPostText.trim()) {
+            this._state.profilePage.posts.push(newPost);
+            // zeroing post text
+            this.updateNewPostText('');
+            // rerender App  with new data
+            this._callSubscriber()
+        }
+    },
+    updateNewPostText(newText: string) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber()
+    },
+    subscribe(observer: () => void) {
+        this._callSubscriber = observer;
     }
-    // adding new post in posts array
-    if (state.profilePage.newPostText.trim()) {
-        state.profilePage.posts.push(newPost);
-        // zeroing post text
-        updateNewPostText('');
-        // rerender App  with new data
-        rerenderEntireTree()
-    }
 }
 
-export const updateNewPostText = (newText: string) => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree()
-}
-
-export const subscribe = (observer: () => void) => {
-    rerenderEntireTree = observer;
-}
-
-export default state
+export default store

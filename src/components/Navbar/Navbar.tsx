@@ -31,4 +31,6 @@ const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
     );
 };
 
+
+
 export default Navbar;
