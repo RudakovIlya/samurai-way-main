@@ -209,9 +209,11 @@ const store: StoreType = {
             ],
             friends: [
                 {id: v1(), name: 'Dima', avatar: settings},
-                {id: v1(), name: 'Ilya', avatar: settings},
-                {id: v1(), name: 'Yana', avatar: settings},
-                {id: v1(), name: 'Andrei', avatar: settings},
+                {id: v1(), name: 'Ilya', avatar: home},
+                {id: v1(), name: 'Yana', avatar: mes},
+                {id: v1(), name: 'Andrei', avatar: news},
+                {id: v1(), name: 'Dronik', avatar: music},
+                {id: v1(), name: 'Mazur', avatar: home},
             ]
         },
     },

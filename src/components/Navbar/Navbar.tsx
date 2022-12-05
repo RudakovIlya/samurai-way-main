@@ -19,12 +19,13 @@ const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
     const friendsItems = friends.map((friend) => {
         return <Friends key={friend.id} friend={friend}/>
     });
+
     return (
         <nav className={styles.nav}>
             <ul className={styles.list}>
                 {navItems}
             </ul>
-            <ul>
+            <ul className={styles['list-friends']}>
                 {friendsItems}
             </ul>
         </nav>
