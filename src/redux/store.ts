@@ -67,15 +67,29 @@ export type RootStateType = {
     sidebar: SidebarType
 }
 
+/*Dispatch-Actions*/
+
+type AddPostActionType = {
+    type: 'ADD-POST'
+    postText: string
+}
+type ChangeNewTextActionType = {
+    type: 'CHANGE-NEW-TEXT'
+    newText: string
+}
+
+export type ActionsTypes = AddPostActionType | ChangeNewTextActionType
+
 /*Store*/
 
 export type StoreType = {
     _state: RootStateType
-    getState: () => RootStateType
     _callSubscriber: () => void
+    getState: () => RootStateType
     addPost: () => void
     updateNewPostText: (newText: string) => void
     subscribe: (observer: () => void) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
 const store: StoreType = {
@@ -201,10 +215,10 @@ const store: StoreType = {
             ]
         },
     },
+    _callSubscriber() {
+    },
     getState() {
         return this._state
-    },
-    _callSubscriber() {
     },
     addPost() {
         // new post
@@ -229,6 +243,28 @@ const store: StoreType = {
     },
     subscribe(observer: () => void) {
         this._callSubscriber = observer;
+    },
+    dispatch(action: ActionsTypes) {
+        if (action.type === 'ADD-POST') {
+            // new post
+            const newPost: PostsType = {
+                id: v1(),
+                message: action.postText.trim(),
+                avatar: settings,
+                likesCount: 0
+            }
+            // adding new post in posts array
+            if (action.postText.trim()) {
+                this._state.profilePage.posts = [newPost, ...this._state.profilePage.posts];
+                // zeroing post text
+                this._state.profilePage.newPostText = ''
+                // rerender App  with new data
+                this._callSubscriber()
+            }
+        } else if (action.type === 'CHANGE-NEW-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber()
+        }
     }
 }
 
