@@ -6,27 +6,23 @@ import {Dialogs} from "./Dialogs/Dialogs";
 import {News} from "./News/News";
 import {Music} from "./Music/Music";
 import {Settings} from "./Settings/Settings";
-import {DialogPageType, ProfilePageType} from "../../redux/state";
+import {ActionsTypes, DialogPageType, ProfilePageType} from "../../redux/store";
 
 type MainPropsType = {
     dialogPage: DialogPageType
     profilePage: ProfilePageType
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
 export const Main: React.FC<MainPropsType> = ({
                                                   profilePage,
                                                   dialogPage,
-                                                  addPost,
-                                                  updateNewPostText
+                                                  dispatch
                                               }) => {
 
     return (
         <main className={styles.main}>
-            <Route path={'/profile'} render={() => <Profile profilePage={profilePage}
-                                                            addPost={addPost}
-                                                            updateNewPostText={updateNewPostText}/>}/>
+            <Route path={'/profile'} render={() => <Profile profilePage={profilePage} dispatch={dispatch}/>}/>
             <Route path={'/dialogs'} render={() => <Dialogs dialogPage={dialogPage}/>}/>
             <Route path={'/news'} render={() => <News/>}/>
             <Route path={'/music'} render={() => <Music/>}/>

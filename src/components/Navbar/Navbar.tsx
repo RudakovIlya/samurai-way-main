@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Navbar.module.scss';
 import {NavItem} from "./NavItem/NavItem";
-import {SidebarType} from "../../redux/state";
+import {SidebarType} from "../../redux/store";
 import {Friends} from "./Friends/Friends";
 
 type NavBarPropsType = {

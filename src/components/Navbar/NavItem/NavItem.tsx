@@ -1,7 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import styles from './NavItem.module.scss'
-import {SidebarLinkType} from "../../../redux/state";
+import {SidebarLinkType} from "../../../redux/store";
 
 export type NavItemPropsType = {
     link: SidebarLinkType

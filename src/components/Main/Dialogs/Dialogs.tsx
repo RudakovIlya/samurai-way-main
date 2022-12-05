@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Dialogs.module.scss'
 import {Message} from "./Message/Message";
 import {Dialog} from "./Dialog/Dialog";
-import {DialogPageType} from "../../../redux/state";
+import {DialogPageType} from "../../../redux/store";
 import SuperButton from "../../Buttons/SuperButton/SuperButton";
 
 type DialogsPropsType = {
