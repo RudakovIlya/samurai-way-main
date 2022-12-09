@@ -15,17 +15,15 @@ const App: React.FC<AppType> = ({store}) => {
     const {dispatch} = store
     const {sidebar, profilePage, dialogPage} = store.getState();
     return (
-        <BrowserRouter>
-            <div className={'app-wrapper'}>
-                <Header/>
-                <Navbar sidebar={sidebar}/>
-                <Main profilePage={profilePage}
-                      dispatch={dispatch.bind(store)}
-                      dialogPage={dialogPage}
-                />
-                <Footer/>
-            </div>
-        </BrowserRouter>
+        <div className={'app-wrapper'}>
+            <Header/>
+            <Navbar sidebar={sidebar}/>
+            <Main profilePage={profilePage}
+                  dispatch={dispatch.bind(store)}
+                  dialogPage={dialogPage}
+            />
+            <Footer/>
+        </div>
     );
 };
 export default App;
