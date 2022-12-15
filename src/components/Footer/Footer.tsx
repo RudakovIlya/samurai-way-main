@@ -5,7 +5,7 @@ export const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <ul className={styles.list}>
-                <li className={styles.item}>Hooli&copy; 2022–2200</li>
+                <li className={styles.item}>Hooli&copy; {new Date().getFullYear()}</li>
                 <li className={styles.item}>
                     <a href="/s">About Hooli</a>
                     <a href="/s">Terms</a>
