@@ -181,7 +181,7 @@ const store: StoreType = {
                     id: v1(),
                     icon: home,
                     altText: 'home',
-                    path: '/',
+                    path: '/profile',
                     linkName: 'Profile'
                 },
                 {

@@ -24,7 +24,7 @@ export const Main: React.FC<MainPropsType> = (props) => {
 
     return (
         <main className={styles.main}>
-            <Route path={'/'} render={() => <Profile profilePage={profilePage} dispatch={dispatch}/>}/>
+            <Route path={'/profile'} render={() => <Profile profilePage={profilePage} dispatch={dispatch}/>}/>
             <Route path={'/dialogs'} render={() => <Dialogs dialogPage={dialogPage}/>}/>
             <Route path={'/news'} render={() => <News/>}/>
             <Route path={'/music'} render={() => <Music/>}/>
