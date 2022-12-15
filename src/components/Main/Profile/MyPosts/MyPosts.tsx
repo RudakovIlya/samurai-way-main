@@ -25,7 +25,7 @@ const MyPosts: React.FC<MyPostsPropsType> = (props) => {
         dispatch(changeNewTextAC(event.currentTarget.value))
     }
 
-    const addPostOnKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    const onKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>) => {
         if (event.key === 'Enter') {
             addPost()
         }
@@ -35,11 +35,11 @@ const MyPosts: React.FC<MyPostsPropsType> = (props) => {
         <div className={styles.posts}>
             <h2>My Posts</h2>
             <div className={styles.send}>
-                <textarea onKeyDown={addPostOnKeyDownHandler} onChange={onPostChange} value={newPostText}
+                <textarea onKeyDown={onKeyDownHandler} onChange={onPostChange} value={newPostText}
                           placeholder={'Enter Text'}></textarea>
                 <SuperButton className={styles.position} onClick={addPost} xType={'primary'}
                              buttonSize={'large'}>
-                    Default
+                    Add post
                 </SuperButton>
             </div>
             <ListPosts posts={posts}/>
