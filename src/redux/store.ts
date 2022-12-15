@@ -36,6 +36,7 @@ export type MessagesType = {
 export type DialogPageType = {
     dialogs: DialogsType[]
     messages: MessagesType[]
+    newMessageText: string
 }
 
 /*Sidebar*/
@@ -83,7 +84,25 @@ export const changeNewTextAC = (newText: string) => {
     } as const
 }; // AC - Action Creator
 
-export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
+export const updateNewMessageTextAC = (newMessage: string) => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE',
+        newMessage
+    } as const
+} // AC - Action Creator
+
+export const addNewMessage = (newMessageText: string) => {
+    return {
+        type: 'ADD-NEW-MESSAGE',
+        newMessageText
+    } as const
+} // AC - Action Creator
+
+export type ActionsTypes =
+    ReturnType<typeof addPostAC>
+    | ReturnType<typeof changeNewTextAC>
+    | ReturnType<typeof updateNewMessageTextAC>
+    | ReturnType<typeof addNewMessage>
 
 /*Store*/
 
@@ -173,6 +192,7 @@ const store: StoreType = {
                     avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
                 },
             ],
+            newMessageText: ''
         },
         sidebar: {
             link: [
@@ -271,6 +291,17 @@ const store: StoreType = {
         } else if (action.type === 'CHANGE-NEW-TEXT') {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber()
+        } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+            this._state.dialogPage.newMessageText = action.newMessage;
+            this._callSubscriber();
+        } else if (action.type === 'ADD-NEW-MESSAGE') {
+            this._state.dialogPage.messages = [...this._state.dialogPage.messages, {
+                id: v1(),
+                avatar: '',
+                text: action.newMessageText
+            }];
+            this._state.dialogPage.newMessageText = '';
+            this._callSubscriber();
         }
     }
 }
