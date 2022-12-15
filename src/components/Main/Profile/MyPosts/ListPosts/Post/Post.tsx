@@ -6,7 +6,10 @@ export type PostPropsType = {
     post: PostsType
 }
 
-export const Post: React.FC<PostPropsType> = ({post: {id, message, avatar, likesCount}}) => {
+export const Post: React.FC<PostPropsType> = (props) => {
+
+    const {post: {id, message, avatar, likesCount}} = props
+
     return (
         <li id={`post-id-${id}`} className={styles.item}>
             <img src={avatar} alt="avatar"/>

@@ -8,7 +8,9 @@ type NavBarPropsType = {
     sidebar: SidebarType
 }
 
-const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
+const Navbar: React.FC<NavBarPropsType> = (props) => {
+
+    const {sidebar: {link, friends}} = props;
 
     const navItems = link.map((link) => {
         return (
@@ -31,7 +33,6 @@ const Navbar: React.FC<NavBarPropsType> = ({sidebar: {link, friends}}) => {
         </nav>
     );
 };
-
 
 
 export default Navbar;

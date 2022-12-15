@@ -7,15 +7,18 @@ export type NavItemPropsType = {
     link: SidebarLinkType
 }
 
-export const NavItem: React.FC<NavItemPropsType> = ({
-                                                        link: {
-                                                            id,
-                                                            icon,
-                                                            altText,
-                                                            path,
-                                                            linkName
-                                                        }
-                                                    }) => {
+export const NavItem: React.FC<NavItemPropsType> = (props) => {
+
+    const {
+        link: {
+            id,
+            icon,
+            altText,
+            path,
+            linkName
+        }
+    } = props
+
     return (
         <li id={id} className={styles.item}>
             <img src={icon} alt={altText}/>

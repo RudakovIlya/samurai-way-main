@@ -8,13 +8,16 @@ type ProfilePropsType = {
     dispatch: (action: ActionsTypes) => void
 }
 
-export const Profile: React.FC<ProfilePropsType> = ({
-                                                        profilePage: {
-                                                            posts,
-                                                            newPostText
-                                                        },
-                                                        dispatch
-                                                    }) => {
+export const Profile: React.FC<ProfilePropsType> = (props) => {
+
+    const {
+        profilePage: {
+            posts,
+            newPostText
+        },
+        dispatch
+    } = props;
+
     return (
         <div>
             <ProfileInfo/>

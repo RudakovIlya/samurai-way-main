@@ -12,13 +12,15 @@ type SuperButtonPropsType = SuperButtonDefaultType & {
     buttonSize?: ButtonSizeType
 }
 
-export const SuperButton: React.FC<SuperButtonPropsType> = ({
-                                                                xType,
-                                                                className,
-                                                                disabled,
-                                                                buttonSize,
-                                                                ...restProps
-                                                            }) => {
+export const SuperButton: React.FC<SuperButtonPropsType> = (props) => {
+
+    const {
+        xType,
+        className,
+        disabled,
+        buttonSize,
+        ...restProps
+    } = props;
 
     const finalButtonSize = `${styles.button} ${buttonSize === 'medium' ? styles.medium : buttonSize === 'large' ? styles.large : styles.small} `;
     const finalButtonStyle = `${disabled ? `${styles.disabled} ${styles.secondary}` : xType === 'secondary' ? styles.secondary : xType === 'outline' ? styles.outline : styles.primary} ${className ? className : ''}`;

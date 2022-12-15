@@ -7,7 +7,10 @@ type FriendsPropsType = {
     friend: FriendsType
 }
 
-export const Friends: React.FC<FriendsPropsType> = ({friend: {id, name, avatar}}) => {
+export const Friends: React.FC<FriendsPropsType> = (props) => {
+
+    const {friend: {id, name, avatar}} = props
+
     return (
         <li key={id} className={styles.item}>
             <NavLink to={'/profile'}>
