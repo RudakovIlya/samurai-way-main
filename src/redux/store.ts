@@ -1,9 +1,12 @@
 import {v1} from "uuid";
-import home from "../components/Navbar/icons/home.svg";
-import mes from "../components/Navbar/icons/message.svg";
-import news from "../components/Navbar/icons/news.svg";
-import music from "../components/Navbar/icons/music.svg";
-import settings from "../components/Navbar/icons/settings_16.svg";
+import home from "../assets/icons/home.svg";
+import mes from "../assets/icons/message.svg";
+import news from "../assets/icons/news.svg";
+import music from "../assets/icons/music.svg";
+import settings from "../assets/icons/settings_16.svg";
+import {addPostAC, changeNewTextAC, ProfileReducer} from "./ProfileReducer";
+import {addNewMessage, DialogReducer, updateNewMessageTextAC} from "./DialogReducer";
+import {SidebarReducer} from "./SidebarReducer";
 
 /* ProfilePage */
 
@@ -70,34 +73,6 @@ export type RootStateType = {
 
 /*Dispatch-Actions*/
 
-export const addPostAC = (postText: string) => {
-    return {
-        type: 'ADD-POST',
-        postText
-    } as const
-}; // AC - Action Creator
-
-export const changeNewTextAC = (newText: string) => {
-    return {
-        type: 'CHANGE-NEW-TEXT',
-        newText
-    } as const
-}; // AC - Action Creator
-
-export const updateNewMessageTextAC = (newMessage: string) => {
-    return {
-        type: 'UPDATE-NEW-MESSAGE',
-        newMessage
-    } as const
-} // AC - Action Creator
-
-export const addNewMessage = (newMessageText: string) => {
-    return {
-        type: 'ADD-NEW-MESSAGE',
-        newMessageText
-    } as const
-} // AC - Action Creator
-
 export type ActionsTypes =
     ReturnType<typeof addPostAC>
     | ReturnType<typeof changeNewTextAC>
@@ -110,8 +85,6 @@ export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
     getState: () => RootStateType
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
     subscribe: (observer: () => void) => void
     dispatch: (action: ActionsTypes) => void
 }
@@ -247,62 +220,14 @@ const store: StoreType = {
     getState() {
         return this._state
     },
-    addPost() {
-        // new post
-        const newPost: PostsType = {
-            id: v1(),
-            message: this._state.profilePage.newPostText.trim(),
-            avatar: settings,
-            likesCount: 0
-        }
-        // adding new post in posts array
-        if (this._state.profilePage.newPostText.trim()) {
-            this._state.profilePage.posts.push(newPost);
-            // zeroing post text
-            this.updateNewPostText('');
-            // rerender App  with new data
-            this._callSubscriber()
-        }
-    },
-    updateNewPostText(newText: string) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber()
-    },
     subscribe(observer: () => void) {
         this._callSubscriber = observer;
     },
     dispatch(action: ActionsTypes) {
-        if (action.type === 'ADD-POST') {
-            // new post
-            const newPost: PostsType = {
-                id: v1(),
-                message: action.postText.trim(),
-                avatar: settings,
-                likesCount: 0
-            }
-            // adding new post in posts array
-            if (action.postText.trim()) {
-                this._state.profilePage.posts = [newPost, ...this._state.profilePage.posts];
-                // zeroing post text
-                this._state.profilePage.newPostText = ''
-                // rerender App  with new data
-                this._callSubscriber()
-            }
-        } else if (action.type === 'CHANGE-NEW-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW-MESSAGE') {
-            this._state.dialogPage.newMessageText = action.newMessage;
-            this._callSubscriber();
-        } else if (action.type === 'ADD-NEW-MESSAGE') {
-            this._state.dialogPage.messages = [...this._state.dialogPage.messages, {
-                id: v1(),
-                avatar: '',
-                text: action.newMessageText
-            }];
-            this._state.dialogPage.newMessageText = '';
-            this._callSubscriber();
-        }
+        this._state.profilePage = ProfileReducer(this._state.profilePage, action);
+        this._state.dialogPage = DialogReducer(this._state.dialogPage, action);
+        this._state.sidebar = SidebarReducer(this._state.sidebar, action);
+        this._callSubscriber();
     }
 }
 

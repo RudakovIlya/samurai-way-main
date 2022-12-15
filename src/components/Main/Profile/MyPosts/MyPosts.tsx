@@ -1,8 +1,9 @@
 import styles from './MyPosts.module.scss';
 import ListPosts from "./ListPosts/ListPosts";
-import {ActionsTypes, addPostAC, changeNewTextAC, PostsType} from "../../../../redux/store";
+import {ActionsTypes, PostsType} from "../../../../redux/store";
 import React, {ChangeEvent, KeyboardEvent} from "react";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
+import {addPostAC, changeNewTextAC} from "../../../../redux/ProfileReducer";
 
 type MyPostsPropsType = {
     posts: PostsType[]

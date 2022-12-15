@@ -1,9 +1,10 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, KeyboardEvent} from "react";
 import styles from './Dialogs.module.scss'
 import {Message} from "./Message/Message";
 import {Dialog} from "./Dialog/Dialog";
-import {ActionsTypes, addNewMessage, DialogPageType, updateNewMessageTextAC} from "../../../redux/store";
+import {ActionsTypes, DialogPageType} from "../../../redux/store";
 import SuperButton from "../../Buttons/SuperButton/SuperButton";
+import {addNewMessage, updateNewMessageTextAC} from "../../../redux/DialogReducer";
 
 type DialogsPropsType = {
     dialogPage: DialogPageType
@@ -34,12 +35,16 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
         )
     })
 
-    const onChangeTextAreaValue = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const onNewMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         dispatch(updateNewMessageTextAC(event.currentTarget.value));
     }
 
-    const addNewMessageCallback = () => {
+    const onSendMessageClick = () => {
         dispatch(addNewMessage(newMessageText));
+    }
+
+    const oneEnterTextArea = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+        event.key === 'Enter' && event.shiftKey && onSendMessageClick();
     }
 
     return (
@@ -52,11 +57,13 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
                     {messagesElement}
                 </ul>
                 <div className={styles.send}>
-                    <textarea value={newMessageText} onChange={onChangeTextAreaValue} placeholder={'Message'}
-                              className={styles.textarea}>
+                    <textarea value={newMessageText} onKeyDown={oneEnterTextArea} onChange={onNewMessageChange}
+                              placeholder={'Enter your message'}
+                              className={styles.textarea}
+                    >
 
                     </textarea>
-                    <SuperButton onClick={addNewMessageCallback} xType={'primary'} buttonSize={'large'}>
+                    <SuperButton onClick={onSendMessageClick} xType={'primary'} buttonSize={'large'}>
                         Send
                     </SuperButton>
 
