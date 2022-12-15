@@ -1,6 +1,6 @@
 import styles from './MyPosts.module.scss';
 import ListPosts from "./ListPosts/ListPosts";
-import {ActionsTypes, PostsType} from "../../../../redux/store";
+import {ActionsTypes, addPostAC, changeNewTextAC, PostsType} from "../../../../redux/store";
 import React, {ChangeEvent, KeyboardEvent} from "react";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
 
@@ -10,18 +10,19 @@ type MyPostsPropsType = {
     dispatch: (action: ActionsTypes) => void
 }
 
-const MyPosts: React.FC<MyPostsPropsType> = ({
-                                                 posts,
-                                                 newPostText,
-                                                 dispatch
-                                             }) => {
+const MyPosts: React.FC<MyPostsPropsType> = (props) => {
+    const {
+        posts,
+        newPostText,
+        dispatch
+    } = props;
 
     const addPost = () => {
-        dispatch({type: 'ADD-POST', postText: newPostText})
+        dispatch(addPostAC(newPostText))
     }
 
     const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        dispatch({type: 'CHANGE-NEW-TEXT', newText: event.currentTarget.value})
+        dispatch(changeNewTextAC(event.currentTarget.value))
     }
 
     const addPostOnKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>) => {
