@@ -73,16 +73,15 @@ export const addPostAC = (postText: string) => {
     return {
         type: 'ADD-POST',
         postText
-
     } as const
-};
+}; // AC - Action Creator
+
 export const changeNewTextAC = (newText: string) => {
     return {
         type: 'CHANGE-NEW-TEXT',
         newText
-
     } as const
-};
+}; // AC - Action Creator
 
 export type ActionsTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewTextAC>
 
@@ -275,6 +274,5 @@ const store: StoreType = {
         }
     }
 }
-
 
 export default store
