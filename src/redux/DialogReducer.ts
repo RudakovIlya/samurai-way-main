@@ -24,11 +24,11 @@ export const updateNewMessageTextAC = (newMessage: string) => {
         type: 'UPDATE-NEW-MESSAGE',
         newMessage
     } as const
-} // AC - Action Creator
+}
 
 export const addNewMessage = (newMessageText: string) => {
     return {
         type: 'ADD-NEW-MESSAGE',
         newMessageText
     } as const
-} // AC - Action Creator
+}
