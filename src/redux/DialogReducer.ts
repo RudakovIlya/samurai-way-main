@@ -1,7 +1,55 @@
 import {ActionsTypes, DialogPageType} from "./store";
 import {v1} from "uuid";
 
-export const DialogReducer = (state: DialogPageType, action: ActionsTypes): DialogPageType => {
+const initialState: DialogPageType = {
+    dialogs: [
+        {
+            id: v1(),
+            name: 'Ilych',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+        },
+        {
+            id: v1(),
+            name: 'Ilych',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+        },
+        {
+            id: v1(),
+            name: 'Ilych',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+        },
+        {
+            id: v1(),
+            name: 'Ilych',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg'
+        },
+    ],
+    messages: [
+        {
+            id: v1(),
+            text: 'Ilych',
+            avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+        },
+        {
+            id: v1(),
+            text: 'Ilych',
+            avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+        },
+        {
+            id: v1(),
+            text: 'Ilych',
+            avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+        },
+        {
+            id: v1(),
+            text: 'Ilych',
+            avatar: '"https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg"'
+        },
+    ],
+    newMessageText: ''
+};
+
+export const DialogReducer = (state: DialogPageType = initialState, action: ActionsTypes): DialogPageType => {
     switch (action.type) {
         case 'ADD-NEW-MESSAGE':
             return {

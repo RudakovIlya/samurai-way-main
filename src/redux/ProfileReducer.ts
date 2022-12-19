@@ -2,7 +2,37 @@ import {ActionsTypes, ProfilePageType,} from "./store";
 import {v1} from "uuid";
 import settings from "../assets/icons/settings_16.svg";
 
-export const ProfileReducer = (state: ProfilePageType, action: ActionsTypes): ProfilePageType => {
+const initialState: ProfilePageType = {
+    posts: [
+        {
+            id: v1(),
+            message: 'Hello Everyone',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+            likesCount: 12
+        },
+        {
+            id: v1(),
+            message: 'Hello!',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+            likesCount: 123,
+        },
+        {
+            id: v1(),
+            message: 'Hello my name is Ilych!',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+            likesCount: 125
+        },
+        {
+            id: v1(),
+            message: 'Hello Everyone',
+            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+            likesCount: 12
+        },
+    ],
+    newPostText: ''
+}
+
+export const ProfileReducer = (state: ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
     switch (action.type) {
         case "ADD-POST":
             return {
