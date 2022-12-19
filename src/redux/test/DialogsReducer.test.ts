@@ -59,6 +59,7 @@ test('new message should be added to the dialog', () => {
     expect(endState.messages[endState.messages.length - 1].text).toBe(newMessageText)
     expect(endState.messages.length).toBe(startState.messages.length + 1);
     expect(endState.dialogs).toStrictEqual(startState.dialogs)
+
 })
 
 test('correct message text value should be overwritten', () => {
@@ -116,5 +117,5 @@ test('correct message text value should be overwritten', () => {
     const endState = DialogReducer(startState, updateNewMessageTextAC(newMessageText));
 
     expect(endState.newMessageText).toBe(newMessageText)
-
+    expect(startState.newMessageText).toBe('')
 })
