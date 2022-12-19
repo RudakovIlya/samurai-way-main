@@ -4,24 +4,21 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Main} from "./components/Main/Main";
 import {Footer} from "./components/Footer/Footer";
-import {RootReducerType} from "./redux/reduxStore";
-import {ActionsTypes} from "./redux/store";
+import {StoreType} from "./redux/reduxStore";
 
 type AppType = {
-    state: RootReducerType
-    dispatch: (action: ActionsTypes) => void
+    store: StoreType
 }
 
-const App: React.FC<AppType> = ({state, dispatch}) => {
+const App: React.FC<AppType> = ({store}) => {
 
-    const {sidebar, profilePage, dialogPage} = state
+    const {sidebar} = store.getState()
+
     return (
         <div className={'app-wrapper'}>
             <Header/>
             <Navbar sidebar={sidebar}/>
-            <Main profilePage={profilePage}
-                  dispatch={dispatch}
-                  dialogPage={dialogPage}
+            <Main store={store}
             />
             <Footer/>
         </div>

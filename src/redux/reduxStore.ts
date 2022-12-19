@@ -13,4 +13,4 @@ export const store = createStore(rootReducer);
 
 export type RootReducerType = ReturnType<typeof rootReducer>
 
-console.log(store)
+export type StoreType = typeof store;

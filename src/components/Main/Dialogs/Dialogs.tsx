@@ -2,25 +2,25 @@ import React, {ChangeEvent, KeyboardEvent} from "react";
 import styles from './Dialogs.module.scss'
 import {Message} from "./Message/Message";
 import {Dialog} from "./Dialog/Dialog";
-import {ActionsTypes, DialogPageType} from "../../../redux/store";
 import SuperButton from "../../Buttons/SuperButton/SuperButton";
-import {addNewMessage, updateNewMessageTextAC} from "../../../redux/DialogReducer";
+import {DialogPageType} from "../../../redux/store";
 
 type DialogsPropsType = {
     dialogPage: DialogPageType
-    dispatch: (action: ActionsTypes) => void
+    updateNewMessage: (messageText: string) => void
+    onSendMessageClick: () => void
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
     const {
-        dialogPage:
-            {
-                dialogs,
-                messages,
-                newMessageText
-            },
-        dispatch
+        updateNewMessage,
+        onSendMessageClick,
+        dialogPage: {
+            newMessageText,
+            dialogs,
+            messages
+        }
     } = props;
 
     const dialogsElement = dialogs.map((dialog) => {
@@ -35,17 +35,11 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
         )
     })
 
-    const onNewMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        dispatch(updateNewMessageTextAC(event.currentTarget.value));
-    }
+    const onNewMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => updateNewMessage(event.currentTarget.value)
 
-    const onSendMessageClick = () => {
-        dispatch(addNewMessage(newMessageText));
-    }
 
-    const oneEnterTextArea = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-        event.key === 'Enter' && event.shiftKey && onSendMessageClick();
-    }
+    const oneEnterTextArea = (event: KeyboardEvent<HTMLTextAreaElement>) => (event.key === 'Enter' && event.shiftKey && onSendMessageClick());
+
 
     return (
         <div className={styles.dialogs}>
