@@ -1,10 +1,9 @@
 import {v1} from "uuid";
-import {addNewMessage, DialogReducer, updateNewMessageTextAC} from "../DialogReducer";
-import {DialogPageType} from "../store";
+import {addNewMessage, DialogReducer, InitialStateType, updateNewMessageTextAC} from "../DialogReducer";
 
 test('new message should be added to the dialog', () => {
 
-    const startState: DialogPageType = {
+    const startState: InitialStateType = {
         dialogs: [
             {
                 id: v1(),
@@ -64,7 +63,7 @@ test('new message should be added to the dialog', () => {
 
 test('correct message text value should be overwritten', () => {
 
-    const startState: DialogPageType = {
+    const startState: InitialStateType = {
         dialogs: [
             {
                 id: v1(),

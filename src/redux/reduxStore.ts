@@ -11,6 +11,6 @@ const rootReducer = combineReducers({
 
 export const store = createStore(rootReducer);
 
-export type AppStateType = ReturnType<typeof rootReducer>
+export type AppStateType = ReturnType<typeof rootReducer> // type for MapStatePropsType
 
 export type StoreType = typeof store;

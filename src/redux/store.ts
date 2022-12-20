@@ -1,16 +1,10 @@
-import {v1} from "uuid";
-import home from "../assets/icons/home.svg";
-import mes from "../assets/icons/message.svg";
-import news from "../assets/icons/news.svg";
-import music from "../assets/icons/music.svg";
-import settings from "../assets/icons/settings_16.svg";
-import {addPostAC, changeNewTextAC, ProfileReducer} from "./ProfileReducer";
-import {addNewMessage, DialogReducer, updateNewMessageTextAC} from "./DialogReducer";
-import {SidebarReducer} from "./SidebarReducer";
+
+import {addPostAC, changeNewTextAC,} from "./ProfileReducer";
+import {addNewMessage,  updateNewMessageTextAC} from "./DialogReducer";
 
 /* ProfilePage */
 
-export type PostsType = {
+/*export type PostsType = {
     id: string,
     message: string,
     avatar: string,
@@ -20,11 +14,11 @@ export type PostsType = {
 export type ProfilePageType = {
     posts: PostsType[]
     newPostText: string
-}
+}*/
 
 /*DialogsPage*/
 
-export type DialogsType = {
+/*export type DialogsType = {
     id: string
     name: string
     avatar: string
@@ -40,7 +34,7 @@ export type DialogPageType = {
     dialogs: DialogsType[]
     messages: MessagesType[]
     newMessageText: string
-}
+}*/
 
 /*Sidebar*/
 
@@ -65,11 +59,11 @@ export type SidebarType = {
 
 /*RootState*/
 
-export type RootStateType = {
+/*export type RootStateType = {
     profilePage: ProfilePageType
     dialogPage: DialogPageType
     sidebar: SidebarType
-}
+}*/
 
 /*Dispatch-Actions*/
 
@@ -81,15 +75,15 @@ export type ActionsTypes =
 
 /*Store*/
 
-export type StoreType = {
+/*export type StoreType = {
     _state: RootStateType
     _callSubscriber: () => void
     getState: () => RootStateType
     subscribe: (observer: () => void) => void
     dispatch: (action: ActionsTypes) => void
-}
+}*/
 
-const store: StoreType = {
+/*const store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -229,6 +223,8 @@ const store: StoreType = {
         this._state.sidebar = SidebarReducer(this._state.sidebar, action);
         this._callSubscriber();
     }
-}
+}*/
 
+/*
 export default store
+*/

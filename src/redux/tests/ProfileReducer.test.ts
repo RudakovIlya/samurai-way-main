@@ -1,10 +1,9 @@
-import {ProfilePageType} from "../store";
 import {v1} from "uuid";
-import {addPostAC, changeNewTextAC, ProfileReducer} from "../ProfileReducer";
+import {addPostAC, changeNewTextAC, InitialStateType, ProfileReducer} from "../ProfileReducer";
 
 test('new post should be added to the wall', () => {
 
-    const startState: ProfilePageType = {
+    const startState: InitialStateType = {
         posts: [
             {
                 id: v1(),
@@ -45,7 +44,7 @@ test('new post should be added to the wall', () => {
 
 test('correct post text should be update', () => {
 
-    const startState: ProfilePageType = {
+    const startState: InitialStateType = {
         posts: [
             {
                 id: v1(),

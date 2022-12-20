@@ -1,8 +1,20 @@
-import {ActionsTypes, ProfilePageType,} from "./store";
+import {ActionsTypes,} from "./store";
 import {v1} from "uuid";
 import settings from "../assets/icons/settings_16.svg";
 
-const initialState: ProfilePageType = {
+export type PostsType = {
+    id: string,
+    message: string,
+    avatar: string,
+    likesCount: number,
+}
+
+export type InitialStateType = {
+    posts: PostsType[]
+    newPostText: string
+}
+
+const initialState: InitialStateType = {
     posts: [
         {
             id: v1(),
@@ -32,7 +44,7 @@ const initialState: ProfilePageType = {
     newPostText: ''
 }
 
-export const ProfileReducer = (state: ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
+export const ProfileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case "ADD-POST":
             return {

@@ -3,10 +3,12 @@ import styles from './Dialogs.module.scss'
 import {Message} from "./Message/Message";
 import {Dialog} from "./Dialog/Dialog";
 import SuperButton from "../../Buttons/SuperButton/SuperButton";
-import {DialogPageType} from "../../../redux/store";
+import {DialogsType, MessagesType} from "../../../redux/DialogReducer";
 
 type DialogsPropsType = {
-    dialogPage: DialogPageType
+    dialogs: DialogsType[]
+    messages: MessagesType[]
+    newMessageText: string
     updateNewMessage: (messageText: string) => void
     onSendMessageClick: () => void
 }
@@ -16,11 +18,9 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
     const {
         updateNewMessage,
         onSendMessageClick,
-        dialogPage: {
-            newMessageText,
-            dialogs,
-            messages
-        }
+        dialogs,
+        messages,
+        newMessageText
     } = props;
 
     const dialogsElement = dialogs.map((dialog) => {

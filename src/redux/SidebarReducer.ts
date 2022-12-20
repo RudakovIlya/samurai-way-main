@@ -1,4 +1,4 @@
-import {ActionsTypes, SidebarType} from "./store";
+import {ActionsTypes} from "./store";
 import {v1} from "uuid";
 import home from "../assets/icons/home.svg";
 import mes from "../assets/icons/message.svg";
@@ -6,7 +6,26 @@ import news from "../assets/icons/news.svg";
 import music from "../assets/icons/music.svg";
 import settings from "../assets/icons/settings_16.svg";
 
-const initialState: SidebarType = {
+export type FriendsType = {
+    id: string
+    name: string
+    avatar: string
+}
+
+export type SidebarLinkType = {
+    id: string
+    icon: string
+    altText: string
+    path: string
+    linkName: string
+}
+
+export type InitialStateType = {
+    link: SidebarLinkType[],
+    friends: FriendsType[]
+}
+
+const initialState: InitialStateType = {
     link: [
         {
             id: v1(),
@@ -54,7 +73,7 @@ const initialState: SidebarType = {
     ]
 };
 
-export const SidebarReducer = (state: SidebarType = initialState, action: ActionsTypes): SidebarType => {
+export const SidebarReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     return state
 };
 

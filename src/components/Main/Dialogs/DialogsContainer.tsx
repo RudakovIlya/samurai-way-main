@@ -10,17 +10,19 @@ const DialogsContainer: FC = () => {
             <StoreContext.Consumer>
                 {
                     (store) => {
-                        const {dialogPage} = store.getState()
+                        const {dialogPage: {dialogs, messages, newMessageText}} = store.getState()
                         const {dispatch} = store;
                         const onNewMessageChange = (messageText: string) => {
                             dispatch(updateNewMessageTextAC(messageText));
                         }
 
                         const onSendMessageClick = () => {
-                            dispatch(addNewMessage(dialogPage.newMessageText));
+                            dispatch(addNewMessage(newMessageText));
                         }
                         return <Dialogs
-                            dialogPage={dialogPage}
+                            newMessageText={newMessageText}
+                            dialogs={dialogs}
+                            messages={messages}
                             updateNewMessage={onNewMessageChange}
                             onSendMessageClick={onSendMessageClick}
                         />
