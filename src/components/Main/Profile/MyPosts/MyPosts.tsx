@@ -8,8 +8,8 @@ import {PostsType} from "../../../../redux/ProfileReducer";
 type MyPostsPropsType = {
     posts: PostsType[]
     newPostText: string
-    addPost: () => void
-    updateNewPostText: (text: string) => void
+    addPost: (postText: string) => void
+    changeNewText: (postText: string) => void
 }
 
 const MyPosts: React.FC<MyPostsPropsType> = (props) => {
@@ -17,17 +17,21 @@ const MyPosts: React.FC<MyPostsPropsType> = (props) => {
         posts,
         newPostText,
         addPost,
-        updateNewPostText
+        changeNewText
     } = props;
 
 
     const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        updateNewPostText(event.currentTarget.value)
+        changeNewText(event.currentTarget.value)
+    }
+
+    const addPostCallBack = () => {
+        addPost(newPostText)
     }
 
     const onKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>) => {
         if (event.key === 'Enter') {
-            addPost()
+            addPostCallBack()
         }
     }
 
@@ -37,7 +41,7 @@ const MyPosts: React.FC<MyPostsPropsType> = (props) => {
             <div className={styles.send}>
                 <textarea onKeyDown={onKeyDownHandler} onChange={onPostChange} value={newPostText}
                           placeholder={'Enter Text'}></textarea>
-                <SuperButton className={styles.position} onClick={addPost} xType={'primary'}
+                <SuperButton className={styles.position} onClick={addPostCallBack} xType={'primary'}
                              buttonSize={'large'}>
                     Add post
                 </SuperButton>

@@ -10,14 +10,14 @@ type DialogsPropsType = {
     messages: MessagesType[]
     newMessageText: string
     updateNewMessage: (messageText: string) => void
-    onSendMessageClick: () => void
+    addNewMessage: (messageText: string) => void
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
     const {
         updateNewMessage,
-        onSendMessageClick,
+        addNewMessage,
         dialogs,
         messages,
         newMessageText
@@ -37,9 +37,9 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
     const onNewMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => updateNewMessage(event.currentTarget.value)
 
+    const callBack = () => addNewMessage(newMessageText)
 
-    const oneEnterTextArea = (event: KeyboardEvent<HTMLTextAreaElement>) => (event.key === 'Enter' && event.shiftKey && onSendMessageClick());
-
+    const oneEnterTextArea = (event: KeyboardEvent<HTMLTextAreaElement>) => (event.key === 'Enter' && event.shiftKey && callBack());
 
     return (
         <div className={styles.dialogs}>
@@ -57,7 +57,7 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
                     >
 
                     </textarea>
-                    <SuperButton onClick={onSendMessageClick} xType={'primary'} buttonSize={'large'}>
+                    <SuperButton onClick={callBack} xType={'primary'} buttonSize={'large'}>
                         Send
                     </SuperButton>
 

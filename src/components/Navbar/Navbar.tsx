@@ -1,16 +1,17 @@
 import React from "react";
 import styles from './Navbar.module.scss';
 import {NavItem} from "./NavItem/NavItem";
-import {SidebarType} from "../../redux/store";
 import {Friends} from "./Friends/Friends";
+import {FriendsType, SidebarLinkType} from "../../redux/SidebarReducer";
 
 type NavBarPropsType = {
-    sidebar: SidebarType
+    link: SidebarLinkType[]
+    friends: FriendsType[]
 }
 
 const Navbar: React.FC<NavBarPropsType> = (props) => {
 
-    const {sidebar: {link, friends}} = props;
+    const {link, friends} = props;
 
     const navItems = link.map((link) => {
         return (

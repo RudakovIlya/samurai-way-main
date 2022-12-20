@@ -38,7 +38,7 @@ export type DialogPageType = {
 
 /*Sidebar*/
 
-export type FriendsType = {
+/*export type FriendsType = {
     id: string
     name: string
     avatar: string
@@ -55,7 +55,7 @@ export type SidebarLinkType = {
 export type SidebarType = {
     link: SidebarLinkType[],
     friends: FriendsType[]
-}
+}*/
 
 /*RootState*/
 

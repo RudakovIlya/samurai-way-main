@@ -1,13 +1,13 @@
-import React from "react";
+import React, {FC} from 'react';
 import {NavLink} from "react-router-dom";
 import styles from './NavItem.module.scss'
-import {SidebarLinkType} from "../../../redux/store";
+import {SidebarLinkType} from "../../../redux/SidebarReducer";
 
 export type NavItemPropsType = {
     link: SidebarLinkType
 }
 
-export const NavItem: React.FC<NavItemPropsType> = (props) => {
+export const NavItem: FC<NavItemPropsType> = (props) => {
 
     const {
         link: {
@@ -22,7 +22,7 @@ export const NavItem: React.FC<NavItemPropsType> = (props) => {
     return (
         <li id={id} className={styles.item}>
             <img src={icon} alt={altText}/>
-            <NavLink  to={path} activeClassName={styles.active}>{linkName}</NavLink>
+            <NavLink to={path} activeClassName={styles.active}>{linkName}</NavLink>
         </li>
     )
 }

@@ -1,13 +1,13 @@
-import React from 'react';
-import {FriendsType} from "../../../redux/store";
+import React, {FC} from 'react';
 import styles from './Friends.module.scss'
 import {NavLink} from "react-router-dom";
+import {FriendsType} from "../../../redux/SidebarReducer";
 
 type FriendsPropsType = {
     friend: FriendsType
 }
 
-export const Friends: React.FC<FriendsPropsType> = (props) => {
+export const Friends: FC<FriendsPropsType> = (props) => {
 
     const {friend: {id, name, avatar}} = props
 
