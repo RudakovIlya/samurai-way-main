@@ -1,10 +1,10 @@
-import {ActionsTypes} from "./store";
 import {v1} from "uuid";
 import home from "../assets/icons/home.svg";
 import mes from "../assets/icons/message.svg";
 import news from "../assets/icons/news.svg";
 import music from "../assets/icons/music.svg";
 import settings from "../assets/icons/settings_16.svg";
+import {ActionsTypes} from "./reduxStore";
 
 export type FriendsType = {
     id: string

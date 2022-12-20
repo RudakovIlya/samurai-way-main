@@ -1,5 +1,5 @@
-import {ActionsTypes} from "./store";
 import {v1} from "uuid";
+import {ActionsTypes} from "./reduxStore";
 
 export type DialogsType = {
     id: string

@@ -4,7 +4,6 @@ import React, {ChangeEvent, KeyboardEvent} from "react";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
 import {PostsType} from "../../../../redux/ProfileReducer";
 
-
 type MyPostsPropsType = {
     posts: PostsType[]
     newPostText: string

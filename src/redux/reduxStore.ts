@@ -1,7 +1,13 @@
 import {combineReducers, createStore} from "redux";
-import {ProfileReducer} from "./ProfileReducer";
-import {DialogReducer} from "./DialogReducer";
+import {addPostAC, changeNewTextAC, ProfileReducer} from "./ProfileReducer";
+import {addNewMessage, DialogReducer, updateNewMessageTextAC} from "./DialogReducer";
 import {SidebarReducer} from "./SidebarReducer";
+
+export type ActionsTypes =
+    ReturnType<typeof addPostAC>
+    | ReturnType<typeof changeNewTextAC>
+    | ReturnType<typeof updateNewMessageTextAC>
+    | ReturnType<typeof addNewMessage>
 
 const rootReducer = combineReducers({
     profilePage: ProfileReducer,

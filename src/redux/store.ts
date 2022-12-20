@@ -1,7 +1,3 @@
-
-import {addPostAC, changeNewTextAC,} from "./ProfileReducer";
-import {addNewMessage,  updateNewMessageTextAC} from "./DialogReducer";
-
 /* ProfilePage */
 
 /*export type PostsType = {
@@ -67,11 +63,13 @@ export type SidebarType = {
 
 /*Dispatch-Actions*/
 
+/*
 export type ActionsTypes =
     ReturnType<typeof addPostAC>
     | ReturnType<typeof changeNewTextAC>
     | ReturnType<typeof updateNewMessageTextAC>
     | ReturnType<typeof addNewMessage>
+*/
 
 /*Store*/
 
@@ -228,3 +226,5 @@ export type ActionsTypes =
 /*
 export default store
 */
+
+export const foo = () => 1;
