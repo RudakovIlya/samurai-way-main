@@ -4,22 +4,20 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import {Main} from "./components/Main/Main";
 import {Footer} from "./components/Footer/Footer";
-import {StoreType} from "./redux/reduxStore";
+import {StoreContext} from "./redux/storeContext"
 
-type AppType = {
-    store: StoreType
-}
-
-const App: React.FC<AppType> = ({store}) => {
-
-    const {sidebar} = store.getState()
-
+const App: React.FC = () => {
     return (
         <div className={'app-wrapper'}>
             <Header/>
-            <Navbar sidebar={sidebar}/>
-            <Main store={store}
-            />
+            <StoreContext.Consumer>
+                {(store) => {
+                    const {sidebar} = store.getState()
+                    return <Navbar sidebar={sidebar}/>
+                }
+                }
+            </StoreContext.Consumer>
+            <Main/>
             <Footer/>
         </div>
     );

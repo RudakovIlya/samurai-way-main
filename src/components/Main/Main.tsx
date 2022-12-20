@@ -5,19 +5,15 @@ import {Profile} from "./Profile/Profile";
 import {News} from "./News/News";
 import {Music} from "./Music/Music";
 import {Settings} from "./Settings/Settings";
-import {StoreType} from "../../redux/reduxStore";
 import DialogsContainer from "./Dialogs/DialogsContainer";
 
-type MainPropsType = {
-    store: StoreType
-}
 
-export const Main: React.FC<MainPropsType> = ({store}) => {
+export const Main: React.FC = () => {
 
     return (
         <main className={styles.main}>
-            <Route path={'/profile'} render={() => <Profile store={store}/>}/>
-            <Route path={'/dialogs'} render={() => <DialogsContainer store={store}/>}/>
+            <Route path={'/profile'} render={() => <Profile/>}/>
+            <Route path={'/dialogs'} render={() => <DialogsContainer/>}/>
             <Route path={'/news'} render={() => <News/>}/>
             <Route path={'/music'} render={() => <Music/>}/>
             <Route path={'/settings'} render={() => <Settings/>}/>
