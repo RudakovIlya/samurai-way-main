@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
-import Navbar from "./components/Navbar/Navbar";
-import {FriendsType, SidebarLinkType} from "./redux/SidebarReducer";
-import {AppStateType} from "./redux/reduxStore";
+import Navbar from "./Navbar";
+import {FriendsType, SidebarLinkType} from "../../redux/SidebarReducer";
+import {AppStateType} from "../../redux/reduxStore";
 
 type mapStateToPropsType = {
     link: SidebarLinkType[]

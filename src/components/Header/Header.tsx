@@ -1,5 +1,5 @@
 import React from "react";
-import icon from './hooli_logo.svg'
+import icon from '../../assets/icons/hooli_logo.svg'
 import styles from './Header.module.scss'
 
 const Header: React.FC = () => {

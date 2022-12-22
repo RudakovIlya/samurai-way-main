@@ -3,8 +3,7 @@ import './App.css';
 import Header from "./components/Header/Header";
 import {Main} from "./components/Main/Main";
 import {Footer} from "./components/Footer/Footer";
-import {NavbarContainer} from "./NavbarContainer";
-
+import {NavbarContainer} from "./components/Navbar/NavbarContainer";
 
 const App: React.FC = () => {
     return (
