@@ -4,6 +4,7 @@ import mes from "../assets/icons/message.svg";
 import news from "../assets/icons/news.svg";
 import music from "../assets/icons/music.svg";
 import settings from "../assets/icons/settings_16.svg";
+import user from '../assets/icons/user.svg'
 import {ActionsTypes} from "./reduxStore";
 
 export type FriendsType = {
@@ -40,6 +41,13 @@ const initialState: InitialStateType = {
             altText: 'message',
             path: '/dialogs',
             linkName: 'Message'
+        },
+        {
+            id: v1(),
+            icon: user,
+            altText: 'users',
+            path: '/users',
+            linkName: 'Users'
         },
         {
             id: v1(),
