@@ -1,8 +1,7 @@
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
-import {AppStateType} from "../../../redux/reduxStore";
+import {AppDispatch, AppStateType} from "../../../redux/reduxStore";
 import {addNewMessage, DialogsType, MessagesType, updateNewMessageTextAC} from "../../../redux/DialogReducer";
-import {Dispatch} from "redux";
 
 type mapStateToPropsType = {
     dialogs: DialogsType[]
@@ -24,7 +23,7 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
+const mapDispatchToProps = (dispatch: AppDispatch): mapDispatchToPropsType => {
     return {
         addNewMessage: (messageText: string) => {
             dispatch(addNewMessage(messageText));

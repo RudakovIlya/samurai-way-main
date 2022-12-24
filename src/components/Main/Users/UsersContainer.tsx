@@ -1,8 +1,7 @@
 import {connect} from "react-redux";
 import Users from "./Users";
-import {AppStateType} from "../../../redux/reduxStore";
+import {AppDispatch, AppStateType} from "../../../redux/reduxStore";
 import {followAC, setUsersAC, unFollowAC, UserType} from "../../../redux/UsersReducer";
-import {Dispatch} from "redux";
 
 type mapStateToPropsType = {
     users: UserType[]
@@ -19,7 +18,8 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
         users
     }
 }
-const mapStateDispatchToProps = (dispatch: Dispatch): mapStateDispatchToPropsType => {
+
+const mapStateDispatchToProps = (dispatch: AppDispatch): mapStateDispatchToPropsType => {
     return {
         onClickFollow: (userID: string) => {
             dispatch(followAC(userID))
