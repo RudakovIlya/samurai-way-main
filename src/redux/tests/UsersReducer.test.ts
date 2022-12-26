@@ -6,23 +6,21 @@ test('correct user must be subscribed', () => {
         users: [
             {
                 id: '1',
-                fullName: 'Ilych',
+                name: 'Ilych',
                 followed: true,
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                location: {
-                    city: 'Minsk',
-                    country: 'Belarus'
+                photos: {
+                    small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    large: null
                 },
                 status: 'Yo!'
             },
             {
                 id: '2',
-                fullName: 'Dimych',
+                name: 'Dimych',
                 followed: false,
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                location: {
-                    city: 'Minsk',
-                    country: 'Belarus'
+                photos: {
+                    small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    large: null
                 },
                 status: 'Yo!'
             },
@@ -42,23 +40,21 @@ test('correct user must be unsubscribed', () => {
         users: [
             {
                 id: '1',
-                fullName: 'Ilych',
+                name: 'Ilych',
                 followed: true,
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                location: {
-                    city: 'Minsk',
-                    country: 'Belarus'
+                photos: {
+                    small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    large: null
                 },
                 status: 'Yo!'
             },
             {
                 id: '2',
-                fullName: 'Dimych',
+                name: 'Dimych',
                 followed: false,
-                avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                location: {
-                    city: 'Minsk',
-                    country: 'Belarus'
+                photos: {
+                    small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
+                    large: null
                 },
                 status: 'Yo!'
             },
