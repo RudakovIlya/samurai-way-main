@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/social-network/static/css/main.84ad13f2.css",
-    "main.js": "/social-network/static/js/main.54981d5a.js",
+    "main.js": "/social-network/static/js/main.b37dca36.js",
     "static/media/hooli_logo.svg": "/social-network/static/media/hooli_logo.6f49d0bc86f8a33c9654ef5e76ab7de1.svg",
     "static/media/news.svg": "/social-network/static/media/news.f363993a250b4b67d4ec52424059c613.svg",
     "static/media/message.svg": "/social-network/static/media/message.60d4ca4d85baea9ae871e02d230e123c.svg",
@@ -11,10 +11,10 @@
     "static/media/home.svg": "/social-network/static/media/home.90187c7154928f054fa6c464667da67e.svg",
     "static/media/user.svg": "/social-network/static/media/user.c9481da7e862e3c05f2b492527a09cd1.svg",
     "main.84ad13f2.css.map": "/social-network/static/css/main.84ad13f2.css.map",
-    "main.54981d5a.js.map": "/social-network/static/js/main.54981d5a.js.map"
+    "main.b37dca36.js.map": "/social-network/static/js/main.b37dca36.js.map"
   },
   "entrypoints": [
     "static/css/main.84ad13f2.css",
-    "static/js/main.54981d5a.js"
+    "static/js/main.b37dca36.js"
   ]
 }
