@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react';
+import React, {ButtonHTMLAttributes, Component, DetailedHTMLProps} from 'react';
 import styles from './SuperButton.module.css'
 
 type SuperButtonDefaultType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>

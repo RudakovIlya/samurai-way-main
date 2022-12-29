@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import {UserType} from "../../../../redux/UsersReducer";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
 import styles from './User.module.scss'
@@ -10,7 +10,7 @@ type UserPropsType = {
     onClickUnFollow: (userID: string) => void
 }
 
-const User: FC<UserPropsType> = ({user, onClickUnFollow, onClickFollow}) => {
+const User: FC<UserPropsType> = memo(({user, onClickUnFollow, onClickFollow}) => {
     const {id, status, photos, name, followed} = user;
 
     const onClickFollowCallback = () => {
@@ -41,6 +41,6 @@ const User: FC<UserPropsType> = ({user, onClickUnFollow, onClickFollow}) => {
             </div>
         </li>
     );
-};
+});
 
 export default User;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import styles from "./Dialog.module.scss";
 import {NavLink} from "react-router-dom";
 import {DialogsType} from "../../../../redux/DialogReducer";
@@ -7,7 +7,7 @@ type DialogItemPropsType = {
     dialog: DialogsType
 }
 
-export const Dialog: React.FC<DialogItemPropsType> = (props) => {
+export const Dialog: React.FC<DialogItemPropsType> = memo((props) => {
 
     const {dialog: {id, name, avatar}} = props
 
@@ -22,5 +22,5 @@ export const Dialog: React.FC<DialogItemPropsType> = (props) => {
             </NavLink>
         </li>
     )
-}
+})
 
