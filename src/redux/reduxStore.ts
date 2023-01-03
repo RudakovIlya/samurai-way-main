@@ -1,8 +1,15 @@
-import {combineReducers, createStore} from "redux";
+import {combineReducers, compose, createStore} from "redux";
 import {addPostAC, changeNewTextAC, ProfileReducer} from "./ProfileReducer";
 import {addNewMessage, DialogReducer, updateNewMessageTextAC} from "./DialogReducer";
 import {SidebarReducer} from "./SidebarReducer";
-import {followAC, setUsersAC, unFollowAC, UsersReducer} from "./UsersReducer";
+import {
+    followAC,
+    setCurrentPageAC,
+    setTotalCountsAC,
+    setUsersAC,
+    unFollowAC,
+    UsersReducer
+} from "./UsersReducer";
 
 export type ActionsTypes =
     ReturnType<typeof addPostAC>
@@ -12,6 +19,17 @@ export type ActionsTypes =
     | ReturnType<typeof followAC>
     | ReturnType<typeof unFollowAC>
     | ReturnType<typeof setUsersAC>
+    | ReturnType<typeof setCurrentPageAC>
+    | ReturnType<typeof setTotalCountsAC>
+
+
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     profilePage: ProfileReducer,
@@ -20,7 +38,7 @@ const rootReducer = combineReducers({
     usersPage: UsersReducer
 })
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeEnhancers());
 
 export type AppStateType = ReturnType<typeof store.getState> // type for MapStatePropsType
 

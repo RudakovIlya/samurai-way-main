@@ -25,6 +25,9 @@ test('correct user must be subscribed', () => {
                 status: 'Yo!'
             },
         ],
+        pageSize: 0,
+        totalUsersCount: 0,
+        currentPage: 0
     }
 
 
@@ -59,8 +62,10 @@ test('correct user must be unsubscribed', () => {
                 status: 'Yo!'
             },
         ],
+        pageSize: 0,
+        totalUsersCount: 0,
+        currentPage: 0
     }
-
 
     const endState: InitialStateType = UsersReducer(initialState, unFollowAC('1'))
 

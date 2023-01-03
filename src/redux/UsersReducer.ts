@@ -1,4 +1,3 @@
-import {v1} from "uuid";
 import {ActionsTypes} from "./reduxStore";
 
 type UserPhotosType = {
@@ -16,52 +15,17 @@ export type UserType = {
 
 export type InitialStateType = {
     users: UserType[]
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 
 const initialState: InitialStateType = {
-    users: [
-        {
-            id: v1(),
-            name: 'Ilych',
-            followed: true,
-            photos: {
-                small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                large: null
-            },
-            status: 'Yo!'
-        },
-        {
-            id: v1(),
-            name: 'Dimych',
-            followed: false,
-            photos: {
-                small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                large: null
-            },
-            status: 'Yo!'
-        },
-        {
-            id: v1(),
-            name: 'Artem',
-            followed: true,
-            photos: {
-                small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                large: null
-            },
-            status: 'Yo!'
-        },
-        {
-            id: v1(),
-            name: 'Vasya',
-            followed: false,
-            photos: {
-                small: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
-                large: null
-            },
-            status: 'Yo!'
-        },
-    ],
-};
+    users: [],
+    pageSize: 15,
+    totalUsersCount: 0,
+    currentPage: 2
+}
 
 export const UsersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
@@ -83,7 +47,16 @@ export const UsersReducer = (state: InitialStateType = initialState, action: Act
             }
         case "SET-USERS":
             return {
-                ...state, users: [...state.users, ...action.payload.users]
+                ...state, users: [...action.payload.users]
+            }
+        case "SET-CURRENT-PAGE":
+            return {
+                ...state, currentPage: action.payload.currentPage
+            }
+        case 'SET-TOTAL-COUNTS':
+            return {
+                ...state,
+                totalUsersCount: action.payload.totalCount
             }
         default:
             return state
@@ -113,6 +86,24 @@ export const setUsersAC = (users: UserType[]) => {
         type: 'SET-USERS',
         payload: {
             users
+        }
+    } as const
+}
+
+export const setCurrentPageAC = (currentPage: number) => {
+    return {
+        type: 'SET-CURRENT-PAGE',
+        payload: {
+            currentPage
+        }
+    } as const
+}
+
+export const setTotalCountsAC = (totalCount: number) => {
+    return {
+        type: 'SET-TOTAL-COUNTS',
+        payload: {
+            totalCount
         }
     } as const
 }
