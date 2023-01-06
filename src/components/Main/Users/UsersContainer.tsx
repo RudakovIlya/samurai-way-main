@@ -24,6 +24,8 @@ type mapStateDispatchToPropsType = {
     setTotalCounts: (totalCounts: number) => void
 }
 
+export type UsersPropsType = mapStateToPropsType & mapStateDispatchToPropsType
+
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => {
     const {usersPage: {users, totalUsersCount, pageSize, currentPage}} = state
     return {

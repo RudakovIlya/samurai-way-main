@@ -14,6 +14,7 @@ type UsersPropsType = {
     setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     setTotalCounts: (totalCounts: number) => void
+
 }
 
 class UsersClass extends Component<UsersPropsType> {
