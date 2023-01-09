@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react';
+import React, {ButtonHTMLAttributes, DetailedHTMLProps, memo} from 'react';
 import styles from './SuperButton.module.css'
 
 type SuperButtonDefaultType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
@@ -12,7 +12,7 @@ type SuperButtonPropsType = SuperButtonDefaultType & {
     buttonSize?: ButtonSizeType
 }
 
-export const SuperButton: React.FC<SuperButtonPropsType> = (props) => {
+export const SuperButton: React.FC<SuperButtonPropsType> = memo((props) => {
 
     const {
         xType,
@@ -28,6 +28,6 @@ export const SuperButton: React.FC<SuperButtonPropsType> = (props) => {
     return (
         <button className={`${finalButtonSize} ${finalButtonStyle}`} disabled={disabled}  {...restProps}/>
     );
-};
+});
 
 export default SuperButton;

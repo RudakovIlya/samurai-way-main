@@ -3,6 +3,7 @@
   padding: 0 15px;
 
   .wrapper {
+    height: 100%;
     display: flex;
     column-gap: 12px;
     padding: 15px;
@@ -23,13 +24,23 @@
     }
 
     .info {
+      flex: auto;
+      display: flex;
+      flex-direction: column;
+      .top {
+        flex: 1;
+      }
       & *:not(:last-child) {
         margin-bottom: 8px;
       }
+
       .name {
         font-weight: 700;
         font-size: 18px;
         letter-spacing: -0.24px;
+      }
+      button {
+        align-self: flex-start;
       }
     }
   }

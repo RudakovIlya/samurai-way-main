@@ -27,12 +27,14 @@ const User: FC<UserPropsType> = memo(({user, onClickUnFollow, onClickFollow}) =>
                     <img src={photos.small ? photos.small : icon} alt={name}/>
                 </div>
                 <div className={styles.info}>
-                    <h4 className={styles.name}>{name}</h4>
-                    <p>
-                        <span>{'location.country'}&nbsp;</span>
-                        <span>{'location.city'}</span>
-                    </p>
-                    <p>{status}</p>
+                    <div className={styles.top}>
+                        <h4 className={styles.name}>{name}</h4>
+                        <p>
+                            <span>{'location.country'}&nbsp;</span>
+                            <span>{'location.city'}</span>
+                        </p>
+                        <p>{status ? status : 'Hi, there!'}</p>
+                    </div>
                     <SuperButton onClick={followed ? onClickUnFollowCallback : onClickFollowCallback}
                                  xType={followed ? 'outline' : 'primary'}>
                         {followed ? 'unfollow' : 'follow'}

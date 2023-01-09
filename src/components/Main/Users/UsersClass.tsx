@@ -3,6 +3,8 @@ import {UserType} from "../../../redux/UsersReducer";
 import User from "./User/User";
 import styles from './Users.module.scss'
 import axios from "axios";
+import SuperButton from "../../Buttons/SuperButton/SuperButton";
+
 
 type UsersPropsType = {
     users: UserType[]
@@ -24,8 +26,8 @@ class UsersClass extends Component<UsersPropsType> {
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setTotalCounts(response.data.totalCount)
-                console.log('did mount')
             })
+
     }
 
     onPageChanged = (currentPage: number) => {
@@ -59,9 +61,10 @@ class UsersClass extends Component<UsersPropsType> {
                 <div className={styles.pagination}>
                     {pages.slice(0, 7).map(page => {
                         return (
-                            <button onClick={() => this.onPageChanged(page)}
-                                    className={this.props.currentPage === page ? styles.selected : ''}
-                                    key={page}>{page}</button>
+                            <SuperButton
+                                xType={this.props.currentPage === page ? 'primary' : 'outline'} buttonSize={'small'}
+                                onClick={() => this.onPageChanged(page)}
+                                key={page}>{page}</SuperButton>
                         )
                     })}
                 </div>

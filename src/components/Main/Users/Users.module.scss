@@ -8,8 +8,12 @@
     margin: 0 -15px;
   }
 
-  .selected {
-    color: red;
-  }
+  .pagination {
+    display: flex;
+    column-gap: 10px;
 
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
 }
