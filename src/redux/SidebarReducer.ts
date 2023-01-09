@@ -32,7 +32,7 @@ const initialState: InitialStateType = {
             id: v1(),
             icon: home,
             altText: 'home',
-            path: '/profile',
+            path: '/profile/2',
             linkName: 'Profile'
         },
         {

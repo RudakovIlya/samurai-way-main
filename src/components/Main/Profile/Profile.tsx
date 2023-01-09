@@ -13,11 +13,11 @@ export const Profile: FC = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id ? id : '2'}`)
             .then(response => {
                 dispatch(setUserProfileAC(response.data))
             })
-    }, [dispatch])
+    }, [dispatch, id])
 
     return (
         <div>
