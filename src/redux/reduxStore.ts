@@ -3,11 +3,11 @@ import {addPostAC, changeNewTextAC, ProfileReducer} from "./ProfileReducer";
 import {addNewMessage, DialogReducer, updateNewMessageTextAC} from "./DialogReducer";
 import {SidebarReducer} from "./SidebarReducer";
 import {
-    followAC,
-    setCurrentPageAC,
-    setTotalCountsAC,
-    setUsersAC, toggleIsFetchingAC,
-    unFollowAC,
+    follow,
+    setCurrentPage,
+    setTotalCounts,
+    setUsers, toggleIsFetching,
+    unFollow,
     UsersReducer
 } from "./UsersReducer";
 
@@ -16,12 +16,12 @@ export type ActionsTypes =
     | ReturnType<typeof changeNewTextAC>
     | ReturnType<typeof updateNewMessageTextAC>
     | ReturnType<typeof addNewMessage>
-    | ReturnType<typeof followAC>
-    | ReturnType<typeof unFollowAC>
-    | ReturnType<typeof setUsersAC>
-    | ReturnType<typeof setCurrentPageAC>
-    | ReturnType<typeof setTotalCountsAC>
-    | ReturnType<typeof toggleIsFetchingAC>
+    | ReturnType<typeof follow>
+    | ReturnType<typeof unFollow>
+    | ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setTotalCounts>
+    | ReturnType<typeof toggleIsFetching>
 
 
 declare global {

@@ -1,4 +1,4 @@
-import {followAC, InitialStateUsersType, unFollowAC, UsersReducer} from "../UsersReducer";
+import {follow, InitialStateUsersType, unFollow, UsersReducer} from "../UsersReducer";
 
 test('correct user must be subscribed', () => {
 
@@ -32,7 +32,7 @@ test('correct user must be subscribed', () => {
     }
 
 
-    const endState: InitialStateUsersType = UsersReducer(initialState, followAC('2'))
+    const endState: InitialStateUsersType = UsersReducer(initialState, follow('2'))
 
     expect(endState.users[1].followed).toBeTruthy();
 
@@ -69,7 +69,7 @@ test('correct user must be unsubscribed', () => {
         isFetching: false
     }
 
-    const endState: InitialStateUsersType = UsersReducer(initialState, unFollowAC('1'))
+    const endState: InitialStateUsersType = UsersReducer(initialState, unFollow('1'))
 
     expect(endState.users[0].followed).toBeFalsy();
 
