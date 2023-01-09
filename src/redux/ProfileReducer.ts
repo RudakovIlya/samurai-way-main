@@ -34,7 +34,7 @@ export type PostsType = {
 export type InitialStateType = {
     posts: PostsType[]
     newPostText: string
-    profile: ProfileType
+    profile: ProfileType | null
 }
 
 const initialState: InitialStateType = {
@@ -65,27 +65,7 @@ const initialState: InitialStateType = {
         },
     ],
     newPostText: '',
-    profile: {
-        aboutMe: 'я круто чувак 1001%',
-        contacts: {
-            github: '',
-            facebook: '',
-            instagram: '',
-            mainLink: '',
-            twitter: '',
-            vk: '',
-            website: '',
-            youtube: ''
-        },
-        userId: 2,
-        fullName: 'Ilya',
-        lookingForAJob: true,
-        photos: {
-            small: '',
-            large: ''
-        },
-        lookingForAJobDescription: 'string'
-    }
+    profile: null
 }
 
 export const ProfileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
