@@ -13,21 +13,23 @@ export type UserType = {
     followed: boolean
 }
 
-export type InitialStateType = {
+export type InitialStateUsersType = {
     users: UserType[]
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 
-const initialState: InitialStateType = {
+const initialState: InitialStateUsersType = {
     users: [],
     pageSize: 15,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 }
 
-export const UsersReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
+export const UsersReducer = (state: InitialStateUsersType = initialState, action: ActionsTypes): InitialStateUsersType => {
     switch (action.type) {
         case "FOLLOW":
             return {
@@ -104,6 +106,15 @@ export const setTotalCountsAC = (totalCount: number) => {
         type: 'SET-TOTAL-COUNTS',
         payload: {
             totalCount
+        }
+    } as const
+}
+
+export const toggleIsFetchingAC = (isFetching: boolean) => {
+    return {
+        type: 'TOGGLE-IS-FETCHING',
+        payload: {
+            isFetching
         }
     } as const
 }

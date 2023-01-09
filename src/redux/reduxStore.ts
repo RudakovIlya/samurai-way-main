@@ -6,7 +6,7 @@ import {
     followAC,
     setCurrentPageAC,
     setTotalCountsAC,
-    setUsersAC,
+    setUsersAC, toggleIsFetchingAC,
     unFollowAC,
     UsersReducer
 } from "./UsersReducer";
@@ -21,6 +21,7 @@ export type ActionsTypes =
     | ReturnType<typeof setUsersAC>
     | ReturnType<typeof setCurrentPageAC>
     | ReturnType<typeof setTotalCountsAC>
+    | ReturnType<typeof toggleIsFetchingAC>
 
 
 declare global {
