@@ -92,7 +92,7 @@ export const updateNewMessageTextAC = (newMessage: string) => {
     } as const
 }
 
-export const addNewMessage = (newMessageText: string) => {
+export const addNewMessageAC = (newMessageText: string) => {
     return {
         type: 'ADD-NEW-MESSAGE',
         newMessageText

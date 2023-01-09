@@ -2,30 +2,21 @@ import styles from './MyPosts.module.scss';
 import ListPosts from "./ListPosts/ListPosts";
 import React, {ChangeEvent, KeyboardEvent} from "react";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
-import {PostsType} from "../../../../redux/ProfileReducer";
+import {useAppDispatch, useAppSelector} from "../../../../redux/hooks/hooks";
+import {addPostAC, changeNewTextAC} from "../../../../redux/ProfileReducer";
 
-type MyPostsPropsType = {
-    posts: PostsType[]
-    newPostText: string
-    addPost: (postText: string) => void
-    changeNewText: (postText: string) => void
-}
+const MyPosts = () => {
 
-const MyPosts: React.FC<MyPostsPropsType> = (props) => {
-    const {
-        posts,
-        newPostText,
-        addPost,
-        changeNewText
-    } = props;
+    const dispatch = useAppDispatch();
 
+    const newPostText = useAppSelector(state => state.profilePage.newPostText)
 
     const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        changeNewText(event.currentTarget.value)
+        dispatch(changeNewTextAC(event.currentTarget.value))
     }
 
     const addPostCallBack = () => {
-        addPost(newPostText)
+        dispatch(addPostAC(newPostText))
     }
 
     const onKeyDownHandler = (event: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -45,7 +36,7 @@ const MyPosts: React.FC<MyPostsPropsType> = (props) => {
                     Add post
                 </SuperButton>
             </div>
-            <ListPosts posts={posts}/>
+            <ListPosts/>
         </div>
     );
 };

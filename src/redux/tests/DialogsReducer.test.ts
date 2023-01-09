@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {addNewMessage, DialogReducer, InitialStateType, updateNewMessageTextAC} from "../DialogReducer";
+import {addNewMessageAC, DialogReducer, InitialStateType, updateNewMessageTextAC} from "../DialogReducer";
 
 test('new message should be added to the dialog', () => {
 
@@ -53,7 +53,7 @@ test('new message should be added to the dialog', () => {
 
     const newMessageText = 'New Message Text'
 
-    const endState = DialogReducer(startState, addNewMessage(newMessageText));
+    const endState = DialogReducer(startState, addNewMessageAC(newMessageText));
 
     expect(endState.messages[endState.messages.length - 1].text).toBe(newMessageText)
     expect(endState.messages.length).toBe(startState.messages.length + 1);

@@ -1,13 +1,13 @@
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {FC} from "react";
-import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
+import MyPosts from "./MyPosts/MyPosts";
 
 export const Profile: FC = () => {
 
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer/>
+            <MyPosts/>
         </div>
 
     );

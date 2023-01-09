@@ -1,14 +1,11 @@
 import React from "react";
 import styles from './ListPosts.module.scss';
 import {Post} from "./Post/Post";
-import {PostsType} from "../../../../../redux/ProfileReducer";
+import {useAppSelector} from "../../../../../redux/hooks/hooks";
 
+const ListPosts = () => {
 
-type ListPropsType = {
-    posts: PostsType[]
-}
-
-const ListPosts: React.FC<ListPropsType> = ({posts}) => {
+    const posts = useAppSelector((state) => state.profilePage.posts)
 
     const postItem = posts.map((post) => {
         return (

@@ -1,24 +1,24 @@
 import React, {FC, memo} from 'react';
-import {UserType} from "../../../../redux/UsersReducer";
+import {follow, unFollow, UserType} from "../../../../redux/UsersReducer";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
 import styles from './User.module.scss'
 import icon from '../../../../assets/icons/hooli_logo.svg'
 import {NavLink} from "react-router-dom";
+import {useAppDispatch} from "../../../../redux/hooks/hooks";
 
 type UserPropsType = {
     user: UserType
-    onClickFollow: (userID: string) => void
-    onClickUnFollow: (userID: string) => void
 }
 
-const User: FC<UserPropsType> = memo(({user, onClickUnFollow, onClickFollow}) => {
+const User: FC<UserPropsType> = memo(({user,}) => {
     const {id, status, photos, name, followed} = user;
+    const dispatch = useAppDispatch();
 
     const onClickFollowCallback = () => {
-        onClickFollow(id)
+        dispatch(follow(id))
     }
     const onClickUnFollowCallback = () => {
-        onClickUnFollow(id)
+        dispatch(unFollow(id))
     }
 
     return (
