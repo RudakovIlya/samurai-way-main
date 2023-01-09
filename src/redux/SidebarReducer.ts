@@ -5,7 +5,7 @@ import news from "../assets/icons/news.svg";
 import music from "../assets/icons/music.svg";
 import settings from "../assets/icons/settings_16.svg";
 import user from '../assets/icons/user.svg'
-import {ActionsTypes} from "./reduxStore";
+import {ActionsTypes} from "./store";
 
 export type FriendsType = {
     id: string

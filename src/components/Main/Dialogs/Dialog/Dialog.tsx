@@ -13,7 +13,8 @@ export const Dialog: React.FC<DialogItemPropsType> = memo((props) => {
 
     return (
         <li className={styles.item}>
-            <NavLink activeClassName={styles.active} className={styles.dialog} to={`/dialogs/${id}`}>
+            <NavLink className={({isActive}) => isActive ? `${styles.dialog} ${styles.active}` : styles.dialog}
+                     to={`/dialogs/${id}`}>
                 <img src={avatar} alt={`dialog/${name}`}/>
                 <div className={styles.description}>
                     <span className={`${styles.name} ${styles.span}`}>{name}</span>

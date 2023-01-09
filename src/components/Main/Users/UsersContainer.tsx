@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import styles from './Users.module.scss'
-import {AppStateType} from "../../../redux/reduxStore";
+import {AppStateType} from "../../../redux/store";
 import {
     follow, InitialStateUsersType,
     setCurrentPage,

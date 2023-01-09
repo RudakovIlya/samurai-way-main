@@ -22,7 +22,7 @@ export const NavItem: FC<NavItemPropsType> = (props) => {
     return (
         <li id={id} className={styles.item}>
             <img src={icon} alt={altText}/>
-            <NavLink to={path} activeClassName={styles.active}>{linkName}</NavLink>
+            <NavLink to={path} className={({isActive}) => isActive ? styles.active : ''}>{linkName}</NavLink>
         </li>
     )
 }

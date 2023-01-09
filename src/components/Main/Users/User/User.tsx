@@ -3,6 +3,7 @@ import {UserType} from "../../../../redux/UsersReducer";
 import SuperButton from "../../../Buttons/SuperButton/SuperButton";
 import styles from './User.module.scss'
 import icon from '../../../../assets/icons/hooli_logo.svg'
+import {NavLink} from "react-router-dom";
 
 type UserPropsType = {
     user: UserType
@@ -28,7 +29,7 @@ const User: FC<UserPropsType> = memo(({user, onClickUnFollow, onClickFollow}) =>
                 </div>
                 <div className={styles.info}>
                     <div className={styles.top}>
-                        <h4 className={styles.name}>{name}</h4>
+                        <NavLink to={`/profile/${id}`} className={styles.name}>{name}</NavLink>
                         <p>
                             <span>{'location.country'}&nbsp;</span>
                             <span>{'location.city'}</span>

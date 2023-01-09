@@ -1,8 +1,8 @@
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import React from "react";
+import {FC} from "react";
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 
-export const Profile: React.FC = () => {
+export const Profile: FC = () => {
 
     return (
         <div>

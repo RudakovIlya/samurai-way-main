@@ -1,4 +1,4 @@
-import {ActionsTypes} from "./reduxStore";
+import {ActionsTypes} from "./store";
 
 type UserPhotosType = {
     small: string | null

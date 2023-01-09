@@ -1,6 +1,6 @@
 import {v1} from "uuid";
 import settings from "../assets/icons/settings_16.svg";
-import {ActionsTypes} from "./reduxStore";
+import {ActionsTypes} from "./store";
 
 export type PostsType = {
     id: string,
