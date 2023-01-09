@@ -1,17 +1,29 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
-import {Main} from "./components/Main/Main";
-import {Footer} from "./components/Footer/Footer";
-import {NavbarContainer} from "./components/Navbar/NavbarContainer";
+import {Route, Routes} from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import {Profile} from "./components/Main/Profile/Profile";
+import {Dialogs} from "./components/Main/Dialogs/Dialogs";
+import {Users} from "./components/Main/Users/Users";
+import {News} from "./components/Main/News/News";
+import {Music} from "./components/Main/Music/Music";
+import {Settings} from "./components/Main/Settings/Settings";
+import {Error} from "./components/Error/Error";
 
 const App: React.FC = () => {
     return (
         <div className={'app-wrapper'}>
-            <Header/>
-            <NavbarContainer />
-            <Main/>
-            <Footer/>
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route path={'/profile/:id'} element={<Profile/>}/>
+                    <Route path={'/dialogs'} element={<Dialogs/>}/>
+                    <Route path={'/users'} element={<Users/>}/>
+                    <Route path={'/news'} element={<News/>}/>
+                    <Route path={'/music'} element={<Music/>}/>
+                    <Route path={'/settings'} element={<Settings/>}/>
+                    <Route path={'/*'} element={<Error/>}/>
+                </Route>
+            </Routes>
         </div>
     );
 };
