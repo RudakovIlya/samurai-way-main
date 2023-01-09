@@ -1,10 +1,11 @@
 import {connect} from "react-redux";
+import styles from './Users.module.scss'
 import {AppDispatch, AppStateType} from "../../../redux/reduxStore";
 import {
     followAC, InitialStateUsersType,
     setCurrentPageAC,
     setTotalCountsAC,
-    setUsersAC,
+    setUsersAC, toggleIsFetchingAC,
     unFollowAC,
     UserType
 } from "../../../redux/UsersReducer";
@@ -20,7 +21,9 @@ type mapStateDispatchToPropsType = {
     setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     setTotalCounts: (totalCounts: number) => void
+    toggleIsFetching: (isFetching: boolean) => void
 }
+
 type UsersAPIPropsType = {
     users: UserType[]
     pageSize: number
@@ -32,24 +35,27 @@ type UsersAPIPropsType = {
     setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     setTotalCounts: (totalCounts: number) => void
+    toggleIsFetching: (isFetching: boolean) => void
 }
 
 class UsersAPIComponent extends Component<UsersAPIPropsType> {
-
     componentDidMount() {
+        this.props.toggleIsFetching(false)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setTotalCounts(response.data.totalCount)
+                this.props.toggleIsFetching(true)
             })
-
     }
 
     onPageChanged = (currentPage: number) => {
         this.props.setCurrentPage(currentPage)
+        this.props.toggleIsFetching(false)
         axios(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
             .then((response) => {
                 this.props.setUsers(response.data.items)
+                this.props.toggleIsFetching(true)
             })
     }
 
@@ -60,7 +66,7 @@ class UsersAPIComponent extends Component<UsersAPIPropsType> {
             onClickUnFollow, isFetching
         } = this.props
         return (
-            <>
+            <section className={styles.users}>
                 {
                     isFetching ? <Users
                         users={users}
@@ -72,10 +78,9 @@ class UsersAPIComponent extends Component<UsersAPIPropsType> {
                         onClickUnFollow={onClickUnFollow}
                     /> : <Preloader/>
                 }
-            </>
+            </section>
         )
     }
-
 }
 
 export type UsersPropsType = mapStateToPropsType & mapStateDispatchToPropsType
@@ -107,6 +112,9 @@ const mapStateDispatchToProps = (dispatch: AppDispatch): mapStateDispatchToProps
         },
         setTotalCounts: (totalCounts: number) => {
             dispatch(setTotalCountsAC(totalCounts))
+        },
+        toggleIsFetching: (isFetching: boolean) => {
+            dispatch(toggleIsFetchingAC(isFetching))
         }
     }
 }

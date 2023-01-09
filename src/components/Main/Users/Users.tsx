@@ -35,7 +35,7 @@ const Users: FC<UsersPropsType> = memo((props) => {
     }
 
     return (
-        <section className={styles.users}>
+        <>
             <header>
                 <h2>Users</h2>
                 <input type="text"/>
@@ -53,7 +53,7 @@ const Users: FC<UsersPropsType> = memo((props) => {
             <ul className={styles.list}>
                 {usersItems}
             </ul>
-        </section>
+        </>
     )
 
 

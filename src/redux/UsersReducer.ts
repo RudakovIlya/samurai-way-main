@@ -23,10 +23,10 @@ export type InitialStateUsersType = {
 
 const initialState: InitialStateUsersType = {
     users: [],
-    pageSize: 15,
-    totalUsersCount: 0,
-    currentPage: 1,
-    isFetching: true
+    pageSize: 15, // кол-во пользователей на странице
+    totalUsersCount: 0, // длина массива пришедшего с сервера
+    currentPage: 1, // текущая страница
+    isFetching: false // статус загрузки
 }
 
 export const UsersReducer = (state: InitialStateUsersType = initialState, action: ActionsTypes): InitialStateUsersType => {
@@ -60,6 +60,12 @@ export const UsersReducer = (state: InitialStateUsersType = initialState, action
                 ...state,
                 totalUsersCount: action.payload.totalCount
             }
+        case "TOGGLE-IS-FETCHING": {
+            return {
+                ...state,
+                isFetching: action.payload.isFetching
+            }
+        }
         default:
             return state
     }
