@@ -9,7 +9,7 @@ export const ProfileInfo = () => {
         <div className={styles.info}>
             <div className={styles.image}>
                 <img
-                    src={profile?.photos.large}
+                    src={profile?.photos.large ? profile?.photos.large : 'https://c4.wallpaperflare.com/wallpaper/1001/595/758/movie-zoolander-ben-stiller-derek-zoolander-wallpaper-preview.jpg'}
                     alt={'content'}
                 />
             </div>

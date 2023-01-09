@@ -107,7 +107,7 @@ export const changeNewTextAC = (newText: string) => {
     } as const
 }; // AC - Action Creator
 
-export const setUserProfileAC = (profile: ProfileType) => {
+export const setUserProfileAC = (profile: ProfileType | null) => {
     return {
         type: 'SET-USER-PROFILE',
         payload: {
