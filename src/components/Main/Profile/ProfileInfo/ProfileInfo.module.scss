@@ -1,9 +1,12 @@
 .info {
   .image {
+    width: 100%;
+
     img {
       border-radius: 10px;
       width: 100%;
       min-height: 250px;
+      max-height: 250px;
       object-fit: cover;
       object-position: top;
     }

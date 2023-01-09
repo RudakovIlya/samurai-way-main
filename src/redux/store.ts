@@ -1,5 +1,5 @@
 import {combineReducers, compose, createStore} from "redux";
-import {addPostAC, changeNewTextAC, ProfileReducer} from "./ProfileReducer";
+import {addPostAC, changeNewTextAC, ProfileReducer, setUserProfileAC} from "./ProfileReducer";
 import {addNewMessageAC, DialogReducer, updateNewMessageTextAC} from "./DialogReducer";
 import {SidebarReducer} from "./SidebarReducer";
 import {
@@ -22,6 +22,7 @@ export type ActionsTypes =
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalCounts>
     | ReturnType<typeof toggleIsFetching>
+    | ReturnType<typeof setUserProfileAC>
 
 
 declare global {

@@ -13,7 +13,7 @@ export const Main: FC = () => {
     return (
         <main className={styles.main}>
             <Routes>
-                <Route path={'/profile'} element={<Profile/>}/>
+                <Route path={'/profile/:id'} element={<Profile/>}/>
                 <Route path={'/dialogs'} element={<Dialogs/>}/>
                 <Route path={'/users'} element={<Users/>}/>
                 <Route path={'/news'} element={<News/>}/>

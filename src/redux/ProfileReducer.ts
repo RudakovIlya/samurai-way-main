@@ -2,6 +2,28 @@ import {v1} from "uuid";
 import settings from "../assets/icons/settings_16.svg";
 import {ActionsTypes} from "./store";
 
+export type ProfileType = {
+    aboutMe: string
+    userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contacts: {
+        github: string | null
+        vk: string | null
+        facebook: string | null
+        instagram: string | null
+        twitter: string | null
+        website: string | null
+        youtube: string | null
+        mainLink: string | null
+    }
+    photos: {
+        small: string
+        large: string
+    }
+}
+
 export type PostsType = {
     id: string,
     message: string,
@@ -12,36 +34,58 @@ export type PostsType = {
 export type InitialStateType = {
     posts: PostsType[]
     newPostText: string
+    profile: ProfileType
 }
 
 const initialState: InitialStateType = {
     posts: [
         {
             id: v1(),
+            avatar: 'https://spletnik.ru/cdn-cgi/image/fit=contain,gravity=0.5x0.5,format=auto,width=1011,height=700,dpr=2/https://images.spletnik.ru/i/G/Gv0AwKRHjj/original.jpg',
             message: 'Hello Everyone',
-            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
             likesCount: 12
         },
         {
             id: v1(),
+            avatar: 'https://spletnik.ru/cdn-cgi/image/fit=contain,gravity=0.5x0.5,format=auto,width=1011,height=700,dpr=2/https://images.spletnik.ru/i/G/Gv0AwKRHjj/original.jpg',
             message: 'Hello!',
-            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
             likesCount: 123,
         },
         {
             id: v1(),
+            avatar: 'https://spletnik.ru/cdn-cgi/image/fit=contain,gravity=0.5x0.5,format=auto,width=1011,height=700,dpr=2/https://images.spletnik.ru/i/G/Gv0AwKRHjj/original.jpg',
             message: 'Hello my name is Ilych!',
-            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
             likesCount: 125
         },
         {
             id: v1(),
+            avatar: 'https://spletnik.ru/cdn-cgi/image/fit=contain,gravity=0.5x0.5,format=auto,width=1011,height=700,dpr=2/https://images.spletnik.ru/i/G/Gv0AwKRHjj/original.jpg',
             message: 'Hello Everyone',
-            avatar: 'https://img01.rl0.ru/afisha/e1500x600i/daily.afisha.ru/uploads/images/d/35/d35d7e33e07f4bcbaa1b68379a467263.jpg',
             likesCount: 12
         },
     ],
-    newPostText: ''
+    newPostText: '',
+    profile: {
+        aboutMe: 'я круто чувак 1001%',
+        contacts: {
+            github: '',
+            facebook: '',
+            instagram: '',
+            mainLink: '',
+            twitter: '',
+            vk: '',
+            website: '',
+            youtube: ''
+        },
+        userId: 2,
+        fullName: 'Ilya',
+        lookingForAJob: true,
+        photos: {
+            small: '',
+            large: ''
+        },
+        lookingForAJobDescription: 'string'
+    }
 }
 
 export const ProfileReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType => {
@@ -58,6 +102,12 @@ export const ProfileReducer = (state: InitialStateType = initialState, action: A
             }
         case "CHANGE-NEW-TEXT":
             return {...state, newPostText: action.newText}
+        case "SET-USER-PROFILE": {
+            return {
+                ...state,
+                profile: action.payload.profile
+            }
+        }
         default:
             return state
     }
@@ -76,3 +126,12 @@ export const changeNewTextAC = (newText: string) => {
         newText
     } as const
 }; // AC - Action Creator
+
+export const setUserProfileAC = (profile: ProfileType) => {
+    return {
+        type: 'SET-USER-PROFILE',
+        payload: {
+            profile
+        }
+    } as const
+}

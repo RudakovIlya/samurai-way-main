@@ -30,7 +30,28 @@ test('new post should be added to the wall', () => {
                 likesCount: 12
             },
         ],
-        newPostText: ''
+        newPostText: '',
+        profile: {
+            aboutMe: 'я круто чувак 1001%',
+            contacts: {
+                github: '',
+                facebook: '',
+                instagram: '',
+                mainLink: '',
+                twitter: '',
+                vk: '',
+                website: '',
+                youtube: ''
+            },
+            userId: 2,
+            fullName: 'Ilya',
+            lookingForAJob: true,
+            photos: {
+                small: '',
+                large: ''
+            },
+            lookingForAJobDescription: 'string'
+        }
     };
 
     const newPostText = 'New Post Text';
@@ -71,7 +92,28 @@ test('correct post text should be update', () => {
                 likesCount: 12
             },
         ],
-        newPostText: ''
+        newPostText: '',
+        profile: {
+            aboutMe: 'я круто чувак 1001%',
+            contacts: {
+                github: '',
+                facebook: '',
+                instagram: '',
+                mainLink: '',
+                twitter: '',
+                vk: '',
+                website: '',
+                youtube: ''
+            },
+            userId: 2,
+            fullName: 'Ilya',
+            lookingForAJob: true,
+            photos: {
+                small: '',
+                large: ''
+            },
+            lookingForAJobDescription: 'string'
+        }
     };
 
     const newPostText = 'New Post Text';

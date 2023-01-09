@@ -21,6 +21,7 @@ export const Users = () => {
                 dispatch(setTotalCounts(response.data.totalCount))
                 dispatch(toggleIsFetching(true))
             })
+
     }, [dispatch, currentPage, pageSize])
 
     const onPageChanged = (currentPage: number) => {
